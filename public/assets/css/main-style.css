@@ -43,42 +43,67 @@
   --remix-icon: "remixicon";
   --Kaushan: "Kaushan Script", cursive;
   --Dm: "DM Sans", sans-serif;
+
+  /* Base colors */
   --white: #fff;
-  --light: #d8dbe0;
-  --dark: #28292c;
-  --info: #0dcaf0;
+  --light: #f9f6f1;
+  --dark: #3a2c1e;
+  --info: #ffd54f; /* yellow info */
   --body: #fff;
-  --primary-color: #017b6e;
-  --secondary-color: #f26f55;
-  --tertiary-color: #39a1f0;
-  --primary-soft-color: #daedef;
-  --primary-soft-color-two: #efeedb;
-  --primary-color-rgb: 1, 123, 110;
-  --secondary-color-rgb: 242, 111, 85;
-  --primary-title: #071516;
-  --secondary-title: #505a59;
-  --tertiary-title: #95b2b4;
+
+  /* Main brand colors (shifted to yellow/orange range) */
+  --primary-color: #ffbf00;           /* bright amber yellow */
+  --secondary-color: #ffc107;         /* standard bootstrap yellow */
+  --tertiary-color: #ffeb99;          /* soft pale yellow */
+
+  --primary-soft-color: #fff5cc;
+  --primary-soft-color-two: #fff8e1;
+
+  /* RGB for overlays/effects */
+  --primary-color-rgb: 255, 191, 0;
+  --secondary-color-rgb: 255, 193, 7;
+
+  /* Text colors */
+  --primary-title: #3e2d00;
+  --secondary-title: #5a4600;
+  --tertiary-title: #947a00;
+
   --pure-black: #000;
-  --primary-paragraph: #4b5051;
-  --secondary-paragraph: #333333;
-  --tertiary-paragraph: #787787;
+
+  --primary-paragraph: #5c4b1e;
+  --secondary-paragraph: #6d5e33;
+  --tertiary-paragraph: #8c7e4e;
+
+  /* Button colors */
   --primary-btn: var(--primary-color);
-  --secondary-btn: #ffd502;
-  --tertiary-btn: #090e0d;
-  --ratting-color: #fcac17;
+  --secondary-btn: #ffe066;
+  --tertiary-btn: #403300;
+
+  /* Ratings */
+  --ratting-color: #ffc107;
   --ratting-color-rgb: 255, 193, 7;
-  --section-bg-one: #fffff3;
-  --section-bg-two: #f5f7f9;
-  --section-bg-three: #e5f1ff;
-  --primary-border: #c7d2d8;
-  --secondary-border: #dddddd70;
-  --tertiary-border: #eaebee;
-  --primary-shadow: 0px 4.12121px 49.4545px rgba(0, 0, 0, 0.08);
-  --primary-gray: #cccdd3;
-  --secondary-gray: #f8f8f8;
+
+  /* Backgrounds */
+  --section-bg-one: #fffdf0;
+  --section-bg-two: #fff9e6;
+  --section-bg-three: #fff6d1;
+
+  /* Borders */
+  --primary-border: #f0e2b6;
+  --secondary-border: #ffecc270;
+  --tertiary-border: #fff0cc;
+
+  /* Shadow */
+  --primary-shadow: 0px 4px 30px rgba(255, 211, 91, 0.25);
+
+  /* Grays shifted warmer */
+  --primary-gray: #eae1c5;
+  --secondary-gray: #fefbf5;
+
+  /* Cards / overlays */
   --available-card-bg: linear-gradient(180deg,
-          #daedef 0%,
-          rgba(218, 237, 239, 0) 98.91%);
+          #fff6d1 0%,
+          rgba(255, 246, 209, 0) 98.91%);
 }
 
 [data-theme=dark] {

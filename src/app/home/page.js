@@ -2,10 +2,12 @@ import { Fragment } from "react";
 import HeaderComponent from "@/components/HeaderComponent";
 import HomeContentComponent from "@/components/HomeContentComponent";
 function HomePage() {
+    console.log('****rebuild****');
+    
     return ( 
         <Fragment>
-            <HeaderComponent></HeaderComponent>
-            <HomeContentComponent></HomeContentComponent>
+            <HeaderComponent />
+            <HomeContentComponent />
         </Fragment>
      );
 }

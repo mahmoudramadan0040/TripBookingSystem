@@ -1,0 +1,179 @@
+{
+  "fullDayTours": [
+    {
+      "title": "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
+      "summary": "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
+      "tourDuration": "Up to 8 hours",
+      "activityDetails": {
+        "reserveNowPayLater": true,
+        "duration": "4 hours",
+        "skipTheTicketLine": true,
+        "liveTourGuide": true,
+        "pickupIncluded": "Please wait 10 minutes before your scheduled time.",
+        "privateGroup": true
+      },
+      "location": {
+        "country" : "Egypt",
+        "city" : "Giza"
+      },
+      "highlights": [
+        "Explore the history and culture of Ancient Egypt",
+        "Wander through 120,000 masterpieces of art at the Egyptian Museum",
+        "See the treasures from the Tomb of Tutankhamen",
+        "Visit the Pyramids of Giza and Great Sphinx",
+        "Pick up some souvenir bargains and learn to haggle at the Khan El Khalili Bazaar"
+      ],
+      "fullDescription": "Starts with Pickup from your hotel in either Cairo or Giza by tour guide to start your full day tour visiting Giza Pyramids where you visit the Great Pyramids - Cheops, Chephren & Mykerinos then Visit the Valley Temple where the Priests Mummified the dead body of King Chephren. Also there you will have a close-up look at The Sphinx. Then continue your day tour to the Egyptian Museum of antiquities. It exhibits over 250,000 genuine artifacts including treasures of Tutankhamon. Then visit the Khan El Khalili Bazaar known for trading fine brassware, copper, perfumes, leather, silver, gold, antiques and much more.",
+      "included": [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Shopping at Papyrus Gallery and Essential Oils Factory",
+        "Bottle of water"
+      ],
+      "excluded": ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"]
+    },
+    {
+      "title": "Dahshur pyramids, Saqqara, Memphis city and Giza pyramids",
+      "summary": "Explore the Cairo's ancient pyramids on a private guided day tour. See the oldest smooth Egyptian pyramid at Dahshur, and the famous step pyramid at Sakkara, Memphis city then marvel at the Great Pyramid of Giza.",
+      "tourDuration": "Up to 8 hours",
+      "activityDetails": {
+        "reserveNowPayLater": true,
+        "duration": "4 hours",
+        "skipTheTicketLine": true,
+        "liveTourGuide": true,
+        "pickupIncluded": "Please wait 10 minutes before your scheduled time.",
+        "privateGroup": true
+      },
+      "highlights": [
+        "Marvel at ancient pyramids of Giza, Sakkara, Memphis city and Dahshur on a Cairo private tour",
+        "Discover the Bent Pyramid and Red Pyramid at the ancient site of Dahshur",
+        "Admire the Step Pyramid at Sakkara, the oldest stone building in all of Egypt",
+        "Explore the Great Pyramids and Great Sphinx of Giza on an unforgettable visit",
+        "Discover Memphis, the heart of ancient Egypt"
+      ],
+      "fullDescription": "After pickup from your Cairo hotel, begin your tour at Sakkara, the city of the dead with the famous Step Pyramid of Djoser. Then visit Memphis, the ancient capital, to see the colossal Statue of Ramses II and the alabaster Sphinx. Continue to Dahshur to see the Bent Pyramid and the Red Pyramid. End the tour at the Giza plateau where you will explore the Great Pyramid of Cheops, the Pyramid of Chephren, and the smaller Pyramid of Mykerinus, and see the Great Sphinx.",
+      "included": [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Shopping at Papyrus Gallery and Essential Oils Factory",
+        "Bottle of water"
+      ],
+      "excluded": ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"]
+    },
+    {
+      "title": "Dahshur pyramids, Saqqara and Memphis city",
+      "tour_duration": "Up to 8 hours",
+      "about": {
+        "reserve_now_pay_later": true,
+        "duration": "4 hours",
+        "skip_ticket_line": true,
+        "live_tour_guide": true,
+        "pickup_included": true,
+        "private_group": true
+      },
+      "highlights": [
+        "Marvel at the Step Pyramid of Djoser in Saqqara.",
+        "Gaze upon the remarkable Bent & Red Pyramids.",
+        "Discover Memphis, the heart of ancient Egypt.",
+        "Stand before the colossal Statue of Ramses II.",
+        "Witness the mysterious alabaster Sphinx."
+      ],
+      "description": "Your adventure begins in the morning as our expert guide whisks you away from your hotel to the awe-inspiring Step Pyramid of Djoser in Saqqara. Marvel at the world's earliest colossal stone monument, erected during the 3rd Dynasty for the venerable King Djoser.\n\nYour excursion continues 8 miles away to Dahshur, where you'll step inside the Red Pyramid, hailed as history's inaugural true pyramid. Gaze upon the Bent Pyramid, renowned for its remarkable preservation. These architectural wonders offer a glimpse into the ingenuity of ancient builders from the Old Kingdom.\n\nNext, we transport you for another 6 miles to the storied city of Memphis, established by the illustrious King Menes. Once the heart of Egyptian rule and culture. Here, we stand in the presence of the colossal Statue of Ramses II and the enigmatic alabaster Sphinx, symbols of a civilization that has captivated the world.\n\nThis is more than a tour; it's a passage through time, take advantage of this opportunity to witness the most incredible ancient sites near Cairo in a single day.\n\nSun Pyramids Tours ensures a transparent and hassle-free experience. You won't encounter any hidden surprises or unexpected costs. Secure your spot on this epic voyage into history today.",
+      "included": [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Shopping at Papyrus Gallery and Essential Oils Factory",
+        "Bottle of water"
+      ],
+      "excluded": ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"]
+    },
+    {
+      "title": "Giza pyramids, Saqqara and Memphis city",
+      "tour_duration": "Up to 8 hours",
+      "about": {
+        "reserve_now_pay_later": true,
+        "duration": "4 hours",
+        "skip_ticket_line": true,
+        "live_tour_guide": true,
+        "pickup_included": true,
+        "private_group": true
+      },
+      "highlights": [
+        "Giza Pyramids, the Sphinx, Memphis and Sakkara",
+        "All Transfers by Private A/C Vehicle Newest Model",
+        "Visit to Paradise perfumes palace",
+        "Visit to Key of life Papyrus & Flower cotton store",
+        "Visit to Hand made carpets"
+      ],
+      "description": "Starts with Pickup from your hotel in either Cairo or Giza By Tour guide to Start your Giza Full Day Tour Visiting Giza Pyramids where you Visit the Great Pyramids Of Giza - Cheops, Chephren & Mykerinos then Visit the Valley Temple The Place where the Priests Mummified the dead body of king Chephren owner of the second pyramid at Giza Platue Also it's the same place where you Can have a close-up look at the Sphinx - The legendary guardian that stands by the huge funeral complex with its lion body and the head of king Chephren.\n\nThen continue your day tour to Sakkara, located only 27 km southwest away from Cairo. Visit the Step Pyramid (Built for king Zoser), it is considered an important part of the process of the pyramid evolution, which were made from the simple mastaba to its widely known form.\n\nThen continue your day tour to Memphis City that was the ancient capital of Egypt, where the colossal statue of Ramses II and the great Alabaster Sphinx are. This City Dates back to 3100 B.C.\n\nEnjoy tour with 20-minute stops at each location: explore natural oils and soft Egyptian cotton at Paradise Perfumes & Flower Cotton, watch papyrus making and view traditional artwork at Key of Life Papyrus, and see skilled artisan’s hand-weaving rugs at local school Handmade Carpets.\n\nEnjoy government stops where to find high quality souvenirs granted by Egyptian government.",
+      "included": [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Shopping at Papyrus Gallery and Essential Oils Factory and Handmade Carpet",
+        "Bottle of water"
+      ],
+      "excluded": ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"]
+    },
+    {
+      "title": "Giza Pyramids and Grand Egyptian museum",
+      "tour_duration": "Up to 8 hours",
+      "about": {
+        "reserve_now_pay_later": true,
+        "duration": "4 hours",
+        "skip_ticket_line": true,
+        "live_tour_guide": true,
+        "pickup_included": true,
+        "private_group": true
+      },
+      "highlights": [
+        "Visit Grand Egyptian Museum",
+        "Visit Great Pyramid of Giza",
+        "Visit the Sphinx"
+      ],
+      "description": "Uncover the ancient wonders of Egypt on an exclusive Private Day Tour Visiting Giza Pyramids and Grand Egyptian Museum. Embark on a personalized journey through time as you explore the famed Giza Pyramids, marveling at their architectural brilliance and captivating legends. Accompanied by a knowledgeable guide, discover the secrets of these iconic landmarks and gain insight into the ancient Egyptian civilization. Explore the state-of-the-art Grand Egyptian Museum, home to a captivating display of archaeological treasures, including the legendary Tutankhamun's collection. With private transportation and a tailored itinerary, this tour ensures a seamless and immersive experience, providing an unforgettable encounter with Egypt's rich heritage.\n\nNOTE: The museum is not fully opening.",
+      "included": [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Shopping at Papyrus Gallery and Essential Oils Factory",
+        "Bottle of water"
+      ],
+      "excluded": ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"]
+    },
+    {
+      "title": "Egyptian museum, Cairo Tower and Nile Felucca ride",
+      "tour_duration": "Up to 8 hours",
+      "about": {
+        "reserve_now_pay_later": true,
+        "duration": "4 hours",
+        "skip_ticket_line": true,
+        "live_tour_guide": true,
+        "pickup_included": true,
+        "private_group": true
+      },
+      "highlights": [
+        "Visit Egyptian Museum in Cairo",
+        "Visit Cairo Tower",
+        "Boat Ride on the Nile"
+      ],
+      "description": "Starts at 8:00 am Pickup from your hotel in either Cairo or Giza by Emo tour guide to start your full day tour visiting The Egyptian Museum. The Egyptian Museum is the oldest archaeological museum in the Middle East, and houses the largest collection of Pharaonic antiquities in the world. The museum displays an extensive collection spanning from the Predynastic Period to the Greco-Roman Era.\n\nThe architect of the building was selected through an international competition in 1895, which was the first of its kind, and was won by the French architect, Marcel Dourgnon. The museum was inaugurated in 1902 by Khedive Abbas Helmy II, and has become a historic landmark in downtown Cairo, and home to some of the world’s most magnificent ancient masterpieces.\n\nAmong the museum’s unrivaled collection are the complete burials of Yuya and Thuya, Psusennes I and the treasures of Tanis, and the Narmer Palette commemorating the unification of Upper and Lower Egypt under one king, which is also among the museum’s invaluable artifacts. The museum also houses the splendid statues of the great kings Khufu, Khafre, and Menkaure, the builders of the pyramids at the Giza plateau. An extensive collection of papyri, sarcophagi and jewelry, among other objects, completes this uniquely expansive museum.\n\nThen continue your day tour to CAIRO TOWER. The Cairo Tower (Borg El-Qāhira) is a free-standing concrete tower in Cairo, Egypt. At 187 m (614 ft), it was the tallest structure in Egypt for 37 years until 1998. One of Cairo's well-known modern monuments, it stands in the Gezira district on Gezira Island in the River Nile, close to downtown Cairo.\n\nThen continue your day tour to Felucca boat on the Nile. Relax and enjoy the landscape view and warm sun of Cairo. This is one of the best things to do in Cairo.",
+      "included": [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Bottle of water"
+      ],
+      "excluded": ["Lunch", "Tips"]
+    }
+  ]
+}

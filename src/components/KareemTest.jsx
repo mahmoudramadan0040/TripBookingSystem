@@ -7,7 +7,7 @@ export default function KareemTest() {
 
   useEffect(() => {
     console.log("-------Kareem Test-------");
-    fetch("/assets/tours.json")
+    fetch("/assets/fullDayTours.json")
       .then((res) => res.json())
       .then((data) => {
         setTourPackage(data);
@@ -22,7 +22,7 @@ export default function KareemTest() {
     <div>
       <h1>Kareem Test</h1>
       {tourPackage ? (
-        <p>{JSON.stringify(tourPackage, null, 2)}</p>
+        <pre>{JSON.stringify(tourPackage, null, 2)}</pre>
       ) : (
         <p>Loading tour data...</p>
       )}

@@ -12,6 +12,10 @@
         "pickupIncluded": "Please wait 10 minutes before your scheduled time.",
         "privateGroup": true
       },
+      "location": {
+        "country" : "Egypt",
+        "city" : "Giza"
+      },
       "highlights": [
         "Explore the history and culture of Ancient Egypt",
         "Wander through 120,000 masterpieces of art at the Egyptian Museum",

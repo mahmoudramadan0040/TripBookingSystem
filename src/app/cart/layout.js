@@ -12,6 +12,7 @@ function CartLayout({ children }) {
     {/* Plugin and main.js */}
       <Script src="/assets/js/plugin.js" strategy="afterInteractive" />
       <Script src="/assets/js/main.js" strategy="afterInteractive" />
+      
    
       {children}
     </>

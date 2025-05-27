@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function TourCart() {
-
   const [cartItems, setCartItems] = useState([
     {
       title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
@@ -109,24 +108,112 @@ export default function TourCart() {
     },
   ]);
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  //   --------------------- Select Date ---------------------
+  const today = new Date();
 
-  // Format the date as "Wednesday, Jan 17, 2025"
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    weekday: "long",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(selectedDate);
+  const formattedDate = today.toLocaleDateString("en-US", {
+    weekday: "long", // e.g., "Wednesday"
+    year: "numeric", // e.g., "2025"
+    month: "long", // e.g., "May"
+    day: "numeric", // e.g., "14"
+  });
 
-  const handleChange = (e) => {
-    console.log('-----Date-----');
-    setSelectedDate(new Date(e.target.value));
-    console.log(selectedDate);
-    
+  const [selectedDate, setSelectedDate] = useState(formattedDate);
+  useEffect(() => {
+    const handleDateChange = () => {
+      console.log("Updated:", window.selectedDate);
+      setSelectedDate(window.selectedDate); // Optional: update React state
+    };
+
+    window.addEventListener("daterangeChanged", handleDateChange);
+
+    return () => {
+      window.removeEventListener("daterangeChanged", handleDateChange);
+    };
+  }, []);
+
+  //   --------------------- Cart Items ---------------------
+  const handleRemoveItem = (index) => {
+    setCartItems((prev) => prev.filter((_, i) => i !== index));
   };
 
+  //   --------------------- Select Guest Count ---------------------
+  const [isOpen, setIsOpen] = useState(false);
+  const [guestCount, setGuestCount] = useState(1);
+  const wrapperRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    // const handleClickOutside = (event) => {
+    //   const picker = document.querySelector(".user-picker");
+    //   const dropdown = document.querySelector(".user-picker-dropdown");
+
+    //   if (
+    //     picker &&
+    //     dropdown &&
+    //     !picker.contains(event.target) &&
+    //     !dropdown.contains(event.target)
+    //   ) {
+    //     setIsOpen(false);
+    //   }
+    // };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  //   const toggleDropdown = (e) => {
+  //     e.stopPropagation();
+  //     setIsOpen((prev) => !prev);
+  //   };
+
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
+  const closeDropdown = (e) => {
+    e.stopPropagation();
+    setIsOpen(false);
+  };
+
+  const increaseGuest = () => {
+    setGuestCount((prev) => prev + 1);
+  };
+
+  const decreaseGuest = () => {
+    setGuestCount((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  //   --------------------- Agree Terms ---------------------
+  const [agreeTerms, setagreeTerms] = useState(false);
+
+  const handleChangeAgreeTerms = (e) => {
+    setagreeTerms(e.target.checked);
+    console.log("Checked:", e.target.checked); // true or false
+  };
+
+  //   --------------------- Calculates ---------------------
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    console.log(cartItems);
+    let sumPrice = cartItems.reduce((sum, tour) => sum + (tour.price || 0), 0);
+    sumPrice *= guestCount;
+    setTotalPrice(sumPrice);
+  }, [cartItems, guestCount]);
+
+  //   --------------------- Payment Now ---------------------
+  function paymentNow() {
+    console.log("--------------------- Payment Now ---------------------");
+    console.log(`guestCount: ${guestCount}`);
+    console.log(`Terms Check: ${agreeTerms}`);
+    console.log(cartItems);
+    console.log(totalPrice);
+    console.log(selectedDate);
+  }
   return (
     <>
       <main>
@@ -200,7 +287,10 @@ export default function TourCart() {
                                 </td>
                                 <td className="font-600">{item.price} $</td>
                                 <td className="text-start">
-                                  <button className="border-0 bg-transparent badge-basic-danger-text text-18">
+                                  <button
+                                    className="border-0 bg-transparent badge-basic-danger-text text-18"
+                                    onClick={() => handleRemoveItem(index)}
+                                  >
                                     <i className="ri-delete-bin-6-line"></i>
                                   </button>
                                 </td>
@@ -248,7 +338,6 @@ export default function TourCart() {
                                   alt="img"
                                 />
                               </li>
-                              
                             </ul>
                             <div className="remember-me terms-condition">
                               <label>
@@ -257,6 +346,8 @@ export default function TourCart() {
                                   type="checkbox"
                                   value="remember"
                                   name="remember"
+                                  checked={agreeTerms}
+                                  onChange={handleChangeAgreeTerms}
                                 />
                                 <small>
                                   I agree to all the
@@ -273,12 +364,12 @@ export default function TourCart() {
                                 <span className="checkmark-style"></span>
                               </label>
                             </div>
-                            <a
+                            {/* <a
                               href="javascript:void(0)"
                               className="btn-primary-submit"
                             >
                               Payment Now
-                            </a>
+                            </a> */}
                           </div>
                         </form>
                       </div>
@@ -290,22 +381,30 @@ export default function TourCart() {
                       <div className="price-review">
                         <div className="d-flex gap-10 align-items-end">
                           <p className="light-pera">From</p>
-                          <p className="pera">$95</p>
+                          <p className="pera">${totalPrice}</p>
                         </div>
                         <div className="rating">
                           <p className="pera">Price varies by group size</p>
                         </div>
                       </div>
+                      {/* Date Select */}
                       <h4 className="heading-card">
                         Select Date and Travelers
                       </h4>
-                      <div className="date-time-dropdown">
+                      <div className="date-time-dropdown-single">
                         <i className="ri-time-line"></i>
                         <p className="date-time-result">
                           Wednesdsay, Jan 17, 2025
                         </p>
                       </div>
-                      <div className="dropdown-section position-relative user-picker-dropdown">
+                      {/* End Date Select */}
+                      {/* # Persons Select */}
+                      <div
+                        className="dropdown-section position-relative user-picker-dropdown"
+                        ref={wrapperRef}
+                        onClick={() => setIsOpen(!isOpen)}
+                        // onClick={toggleDropdown}
+                      >
                         <div className="d-flex gap-12 align-items-center">
                           <i className="dropdown-icon ri-user-line"></i>
                           <div className="custom-dropdown">
@@ -315,96 +414,68 @@ export default function TourCart() {
                             </div>
                           </div>
                         </div>
-                        <div className="user-result"></div>
-                        <div className="user-picker dropdown-shadow">
-                          <div className="user-category">
-                            <div className="category-name">
-                              <h4 className="title">Adults</h4>
-                              <p className="pera">12years and above</p>
-                            </div>
-                            <div className="qty-container">
-                              <button
-                                className="qty-btn-minus mr-1"
-                                type="button"
-                              >
-                                <i className="ri-subtract-fill"></i>
-                              </button>
-                              <input
-                                type="text"
-                                name="qty"
-                                value="0"
-                                className="input-qty input-rounded"
-                              />
-                              <button
-                                className="qty-btn-plus ml-1"
-                                type="button"
-                              >
-                                <i className="ri-add-fill"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div className="user-category">
-                            <div className="category-name">
-                              <h4 className="title">Children</h4>
-                              <p className="pera">2-11 years</p>
-                            </div>
-                            <div className="qty-container">
-                              <button
-                                className="qty-btn-minus mr-1"
-                                type="button"
-                              >
-                                <i className="ri-subtract-fill"></i>
-                              </button>
-                              <input
-                                type="text"
-                                name="qty"
-                                value="0"
-                                className="input-qty input-rounded"
-                              />
-                              <button
-                                className="qty-btn-plus ml-1"
-                                type="button"
-                              >
-                                <i className="ri-add-fill"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div className="user-category">
-                            <div className="category-name">
-                              <h4 className="title">infant</h4>
-                              <p className="pera">belwo 2 years</p>
-                            </div>
-                            <div className="qty-container">
-                              <button
-                                className="qty-btn-minus mr-1"
-                                type="button"
-                              >
-                                <i className="ri-subtract-fill"></i>
-                              </button>
-                              <input
-                                type="text"
-                                name="qty"
-                                value="0"
-                                className="input-qty input-rounded"
-                              />
-                              <button
-                                className="qty-btn-plus ml-1"
-                                type="button"
-                              >
-                                <i className="ri-add-fill"></i>
-                              </button>
-                            </div>
-                          </div>
-                          <div className="btn-section">
-                            <a href="javascript:void(0)" className="done-btn">
-                              Done
-                            </a>
-                          </div>
+
+                        <div className="user-result px-6">
+                          {guestCount > 0 && (
+                            <span>{guestCount} person(s)</span>
+                          )}
                         </div>
+
+                        {isOpen && (
+                          <div
+                            className={`user-picker dropdown-shadow ${
+                              isOpen ? "show" : ""
+                            }`}
+                            onClick={stopPropagation}
+                          >
+                            <div className="user-category">
+                              <div className="category-name">
+                                <h4 className="title">Persons</h4>
+                              </div>
+                              <div className="qty-container">
+                                <button
+                                  className="qty-btn-minus mr-1"
+                                  type="button"
+                                  onClick={decreaseGuest}
+                                >
+                                  <i className="ri-subtract-fill"></i>
+                                </button>
+                                <input
+                                  type="text"
+                                  name="qty"
+                                  value={guestCount}
+                                  readOnly
+                                  className="input-qty input-rounded text-center"
+                                />
+                                <button
+                                  className="qty-btn-plus ml-1"
+                                  type="button"
+                                  onClick={increaseGuest}
+                                >
+                                  <i className="ri-add-fill"></i>
+                                </button>
+                              </div>
+                            </div>
+
+                            <div className="btn-section">
+                              <button
+                                className="done-btn no-border"
+                                onClick={closeDropdown}
+                              >
+                                Done
+                              </button>
+                            </div>
+                          </div>
+                        )}
                       </div>
+                      {/* End # Persons Select */}
                       <div className="mt-30">
-                        <button type="submit" className="send-btn w-100">
-                          Check Availability
+                        <button
+                          type="submit"
+                          className="send-btn w-100 no-border"
+                          onClick={paymentNow}
+                        >
+                          Payment Now
                         </button>
                       </div>
                       <div className="footer bg-transparent">

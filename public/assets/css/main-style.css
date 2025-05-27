@@ -21866,7 +21866,9 @@ button.applyBtn.btn.btn-sm.btn-primary {
   display: inline-block;
   margin-left: auto;
 }
-
+.no-border {
+  border: none !important;
+}
 .qty-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28680,10 +28682,31 @@ button.applyBtn.btn.btn-sm.btn-primary {
   gap: 12px;
   margin-bottom: 12px;
 }
+.tour-details-container .date-travel-card .date-time-dropdown-single {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: var(--white);
+  border: 1px solid var(--tertiary-border);
+  font-size: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
 .tour-details-container .date-travel-card .date-time-dropdown:hover {
   cursor: pointer;
 }
 .tour-details-container .date-travel-card .date-time-dropdown .date-time-result {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--primary-title);
+}
+.tour-details-container .date-travel-card .date-time-dropdown-single .date-time-result {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -34768,6 +34791,9 @@ td .user .thumb {
   background-color: var(--primary-color);
 }
 [data-theme=dark] .tour-details-container .date-travel-card .date-time-dropdown {
+  background-color: var(--primary-border2);
+}
+[data-theme=dark] .tour-details-container .date-travel-card .date-time-dropdown-single {
   background-color: var(--primary-border2);
 }
 [data-theme=dark] .tour-details-container .date-travel-card .dropdown-section {

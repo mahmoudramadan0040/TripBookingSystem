@@ -17,7 +17,9 @@ export default function DetailsWithSlider() {
         console.error("Failed to load JSON:", error);
       });
   }, []);
-
+  function addToCart() {
+    console.log(tourPackageDetails);
+  }
   return (
     <div>
       <main>
@@ -95,7 +97,7 @@ export default function DetailsWithSlider() {
                   <div className="price-review">
                     <div className="d-flex gap-10 align-items-end">
                       <p className="light-pera">From</p>
-                      <p className="pera">$451</p>
+                      <p className="pera">${tourPackageDetails?.price || 0}</p>
                     </div>
                     <div className="rating">
                       <i className="ri-star-s-fill"></i>
@@ -200,7 +202,7 @@ export default function DetailsWithSlider() {
                                           (item, index) => {
                                             return (
                                               <li className="list" key={index}>
-                                               {item}
+                                                {item}
                                               </li>
                                             );
                                           }
@@ -272,121 +274,22 @@ export default function DetailsWithSlider() {
                         <div className="price-review">
                           <div className="d-flex gap-10 align-items-end">
                             <p className="light-pera">From</p>
-                            <p className="pera">$95</p>
+                            <p className="pera">
+                              ${tourPackageDetails?.price || 0}
+                            </p>
                           </div>
                           <div className="rating">
                             <p className="pera">Price varies by group size</p>
                           </div>
                         </div>
-                        <h4 className="heading-card">
-                          Select Date and Travelers
-                        </h4>
-                        <div className="date-time-dropdown">
-                          <i className="ri-time-line"></i>
-                          <p className="date-time-result">
-                            Wednesday, Jan 17, 2025
-                          </p>
-                        </div>
-                        <div className="dropdown-section position-relative user-picker-dropdown">
-                          <div className="d-flex gap-12 align-items-center">
-                            <i className="dropdown-icon ri-user-line"></i>
-                            <div className="custom-dropdown">
-                              <h4 className="title">Guests</h4>
-                              <div className="arrow">
-                                <i className="ri-arrow-down-s-line"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="user-result"></div>
-                          <div className="user-picker dropdown-shadow">
-                            <div className="user-category">
-                              <div className="category-name">
-                                <h4 className="title">Adults</h4>
-                                <p className="pera">12years and above</p>
-                              </div>
-                              <div className="qty-container">
-                                <button
-                                  className="qty-btn-minus mr-1"
-                                  type="button"
-                                >
-                                  <i className="ri-subtract-fill"></i>
-                                </button>
-                                <input
-                                  type="text"
-                                  name="qty"
-                                  value="0"
-                                  className="input-qty input-rounded"
-                                />
-                                <button
-                                  className="qty-btn-plus ml-1"
-                                  type="button"
-                                >
-                                  <i className="ri-add-fill"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <div className="user-category">
-                              <div className="category-name">
-                                <h4 className="title">Children</h4>
-                                <p className="pera">2-11 years</p>
-                              </div>
-                              <div className="qty-container">
-                                <button
-                                  className="qty-btn-minus mr-1"
-                                  type="button"
-                                >
-                                  <i className="ri-subtract-fill"></i>
-                                </button>
-                                <input
-                                  type="text"
-                                  name="qty"
-                                  value="0"
-                                  className="input-qty input-rounded"
-                                />
-                                <button
-                                  className="qty-btn-plus ml-1"
-                                  type="button"
-                                >
-                                  <i className="ri-add-fill"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <div className="user-category">
-                              <div className="category-name">
-                                <h4 className="title">infant</h4>
-                                <p className="pera">belwo 2 years</p>
-                              </div>
-                              <div className="qty-container">
-                                <button
-                                  className="qty-btn-minus mr-1"
-                                  type="button"
-                                >
-                                  <i className="ri-subtract-fill"></i>
-                                </button>
-                                <input
-                                  type="text"
-                                  name="qty"
-                                  value="0"
-                                  className="input-qty input-rounded"
-                                />
-                                <button
-                                  className="qty-btn-plus ml-1"
-                                  type="button"
-                                >
-                                  <i className="ri-add-fill"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <div className="btn-section">
-                              <a href="javascript:void(0)" className="done-btn">
-                                Done
-                              </a>
-                            </div>
-                          </div>
-                        </div>
                         <div className="mt-30">
-                          <button type="submit" className="send-btn w-100">
-                            Check Availability
+                          <button
+                            type="submit"
+                            className="send-btn w-100"
+                            onClick={addToCart}
+                          >
+                            Add To Cart
+                            <i className="ri-shopping-cart-line mx-5"></i>
                           </button>
                         </div>
                         <div className="footer bg-transparent">

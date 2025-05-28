@@ -1688,10 +1688,10 @@ function HomeContentComponent() {
 
         {/* <!-- About Us area S t a r t --> */}
         <section className="about-area">
-            <div className="container">
+            <div className="container"> 
                 <div className="row g-4">
                     <div className="col-xl-5 col-lg-6">
-                        <div className="section-title mx-430 mb-30 w-md-100">
+                        <div className="section-title max-w-108 mb-30 w-md-100">
                             <span className="highlights fancy-font font-400">About Us</span>
                             <h4 className="title">
                                 Get The Best Travel Experience With Travello

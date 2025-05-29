@@ -4,16 +4,12 @@ import BannerContentComponent from "@/components/Home/Content/BannerContentCompo
 import SearchTransportComponent from "@/components/Home/Content/SearchTransportComponent";
 import PopularPakageComponent from "@/components/Home/Content/PopularPakageComponent";
 function HomePage() {
-    console.log('****rebuild****');
-    
     return ( 
         <Fragment>
             <HeaderComponent></HeaderComponent>
             <BannerContentComponent></BannerContentComponent>
             <SearchTransportComponent></SearchTransportComponent>
             <PopularPakageComponent></PopularPakageComponent>
-            <HeaderComponent />
-            <HomeContentComponent />
         </Fragment>
      );
 }

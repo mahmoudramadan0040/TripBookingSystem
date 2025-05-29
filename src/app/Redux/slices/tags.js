@@ -1,4 +1,5 @@
 export const TAG_TYPES = {
-    User:"user"
-
+    User:"user",
+    Tour:"Tours",
+    Transport:"Transport"
 };

@@ -1,12 +1,14 @@
+import Link from "next/link";
+
 function TourCard({ tour }) {
-  const { title, price, Duration, images, locations, IsFeatured } = tour;
+  const { title, price, Duration, images, locations, IsFeatured, id } = tour;
   return (
     <div className="">
       <div className="package-card">
         <div className="package-img imgEffect4">
-          <a href="details-with-slider.html">
+          <Link href={`/tours/${id}`}>
             <img src={images[0] ? images[0].cloudImage : ""} alt="travello" />
-          </a>
+          </Link>
           {IsFeatured ? (
             <div className="image-badge">
               <p className="pera">Featured</p>

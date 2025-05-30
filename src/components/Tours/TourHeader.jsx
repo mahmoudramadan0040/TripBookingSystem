@@ -1,3 +1,4 @@
+import Link from "next/link";
 function TourHeader() {
   return (
     <>
@@ -14,13 +15,13 @@ function TourHeader() {
                       <div className="top-header-left d-flex align-items-center">
                         {/* <!-- Logo--> */}
                         <div className="logo">
-                          <a href="index.html">
+                          <Link href="home">
                             <img
                               src="assets/images/logo/logo.png"
                               alt="logo"
                               className="changeLogo"
                             />
-                          </a>
+                          </Link>
                         </div>
                         {/* <!-- search box --> */}
                         <div className="search-box search-bar d-none d-lg-block">
@@ -93,29 +94,13 @@ function TourHeader() {
                           <div className="d-flex justify-content-between align-items-center">
                             <ul className="listing" id="navigation">
                               <li className="single-list">
-                                <a
-                                  href="javascript:void(0)"
+                                <Link
+                                  href="home"
                                   className="single link-active"
                                 >
-                                  Home <i className="ri-arrow-down-s-line"></i>
-                                </a>
-                                <ul className="submenu">
-                                  <li className="single-list">
-                                    <a href="index.html" className="single">
-                                      Home 01
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="index-two.html" className="single">
-                                      Home 02
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="index-three.html" className="single">
-                                      Home 03
-                                    </a>
-                                  </li>
-                                </ul>
+                                  Home 
+                                </Link>
+                                
                               </li>
                               <li className="single-list">
                                 <a href="javascript:void(0)" className="single">
@@ -182,63 +167,7 @@ function TourHeader() {
                                   </li>
                                 </ul>
                               </li>
-                              <li className="single-list">
-                                <a href="javascript:void(0)" className="single">
-                                  Hotels <i className="ri-arrow-down-s-line"></i>
-                                </a>
-                                <ul className="submenu">
-                                  <li className="single-list">
-                                    <a href="hotel-list.html" className="single">
-                                      hotel Category Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="top-filter-hotel-list.html"
-                                      className="single"
-                                    >
-                                      hotel Top Filter Category
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="hotel-details-with-slider.html"
-                                      className="single"
-                                    >
-                                      Details With slider
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="hotel-cart-page.html"
-                                      className="single"
-                                    >
-                                      Cart hotel Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="hotel-booking-payment.html"
-                                      className="single"
-                                    >
-                                      Payment hotel Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="hotel-booking-complite.html"
-                                      className="single"
-                                    >
-                                      Finish hotel Booking
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="invoice.html" className="single">
-                                      View Invoice
-                                    </a>
-                                  </li>
-                                </ul>
-                              </li>
+                              
                               <li className="single-list">
                                 <a href="javascript:void(0)" className="single">
                                   Transports{" "}
@@ -300,268 +229,8 @@ function TourHeader() {
                                   </li>
                                 </ul>
                               </li>
-                              <li className="single-list">
-                                <a href="javascript:void(0)" className="single">
-                                  Restaurants{" "}
-                                  <i className="ri-arrow-down-s-line"></i>
-                                </a>
-                                <ul className="submenu">
-                                  <li className="single-list">
-                                    <a
-                                      href="restaurant-list.html"
-                                      className="single"
-                                    >
-                                      restaurant Category Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="top-filter-restaurant-list.html"
-                                      className="single"
-                                    >
-                                      Top Filter Category
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="restaurant-details-with-slider.html"
-                                      className="single"
-                                    >
-                                      Details With slider
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="restaurant-cart-page.html"
-                                      className="single"
-                                    >
-                                      Cart restaurant Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="restaurant-booking-payment.html"
-                                      className="single"
-                                    >
-                                      Payment restaurant Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="restaurant-booking-complite.html"
-                                      className="single"
-                                    >
-                                      Finish restaurant Booking
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="invoice.html" className="single">
-                                      View Invoice
-                                    </a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li className="single-list">
-                                <a href="javascript:void(0)" className="single">
-                                  Pages <i className="ri-arrow-down-s-line"></i>
-                                </a>
-                                <ul className="submenu">
-                                  <li className="single-list">
-                                    <a href="#" className="single">
-                                      {" "}
-                                      Dashboard
-                                      <i className="ri-arrow-right-s-line"></i>
-                                    </a>
-                                    <ul className="submenu">
-                                      <li className="single-list">
-                                        <a href="dashboard.html" className="single">
-                                          Dashboard
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="all-tours-booking.html"
-                                          className="single"
-                                        >
-                                          Tour Booking
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="all-hotels-booking.html"
-                                          className="single"
-                                        >
-                                          Hotel Booking
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="payout-settings.html"
-                                          className="single"
-                                        >
-                                          Payout Setting
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="support.html" className="single">
-                                          Support Ticket
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="setting.html" className="single">
-                                          Profile Setting
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="javascript:void(0)" className="single">
-                                      Error Page
-                                      <i className="ri-arrow-right-s-line"></i>
-                                    </a>
-                                    <ul className="submenu">
-                                      <li className="single-list">
-                                        <a href="error/400.html" className="single">
-                                          400 page
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="error/404.html" className="single">
-                                          404 page
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="error/408.html" className="single">
-                                          408 page
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="error/500.html" className="single">
-                                          500 page
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="error/503.html" className="single">
-                                          503 page
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="javascript:void(0)" className="single">
-                                      Login<i className="ri-arrow-right-s-line"></i>
-                                    </a>
-                                    <ul className="submenu">
-                                      <li className="single-list">
-                                        <a href="login.html" className="single">
-                                          Login
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a href="register.html" className="single">
-                                          Registration
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="forgot-pass.html"
-                                          className="single"
-                                        >
-                                          Forgot Password
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="verification.html"
-                                          className="single"
-                                        >
-                                          Verification
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="new-password.html"
-                                          className="single"
-                                        >
-                                          New Password
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="about.html" className="single">
-                                      About
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="tourist-guid.html" className="single">
-                                      Tourist Guid
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="tourist-guid-details.html"
-                                      className="single"
-                                    >
-                                      Tourist Guid Details
-                                    </a>
-                                  </li>
-
-                                  <li className="single-list">
-                                    <a href="news.html" className="single">
-                                      News
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="contact.html" className="single">
-                                      Contact
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="news-details.html" className="single">
-                                      News Details
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="#" className="single">
-                                      {" "}
-                                      Others
-                                      <i className="ri-arrow-right-s-line"></i>
-                                    </a>
-                                    <ul className="submenu">
-                                      <li className="single-list">
-                                        <a href="faq.html" className="single">
-                                          FAQs
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="privacy-policy.html"
-                                          className="single"
-                                        >
-                                          privacy policy
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="terms-condition.html"
-                                          className="single"
-                                        >
-                                          terms-condition
-                                        </a>
-                                      </li>
-                                      <li className="single-list">
-                                        <a
-                                          href="tour-cart-page.html"
-                                          className="single"
-                                        >
-                                          cart
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                </ul>
-                              </li>
+                              
+                              
                               <li className="d-block d-lg-none">
                                 <div className="header-right pl-15">
                                   <div className="d-flex align-items-center gap-12">

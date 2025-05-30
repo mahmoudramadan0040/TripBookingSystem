@@ -444,16 +444,19 @@
     //   showDropdowns: true,     // Optional: shows year/month dropdowns
     //   autoUpdateInput: false   // Prevents automatic input filling
   });
-  $(".date-time-dropdown-single").on("apply.daterangepicker", function (ev, picker) {
-    var pickedDate = picker.startDate.format("dddd, MMM D, YYYY");
-    // Update global variable with the selected range
-    window.selectedDate = pickedDate
-    
-    window.dispatchEvent(new Event("daterangeChanged"));
-    // console.log(window.selectedDate);
+  $(".date-time-dropdown-single").on(
+    "apply.daterangepicker",
+    function (ev, picker) {
+      var pickedDate = picker.startDate.format("dddd, MMM D, YYYY");
+      // Update global variable with the selected range
+      window.selectedDate = pickedDate;
 
-    $(".date-time-result").text(selectedDate);
-  });
+      window.dispatchEvent(new Event("daterangeChanged"));
+      // console.log(window.selectedDate);
+
+      $(".date-time-result").text(selectedDate);
+    }
+  );
 
   $(".date-time-dropdown").daterangepicker();
   $(".date-time-dropdown").on("apply.daterangepicker", function (ev, picker) {
@@ -500,25 +503,25 @@
   /*----------------------------------------------
         User picker Dropdown
     ----------------------------------------------*/
-//   $(".user-picker-dropdown").on("click", function (event) {
-//     $(".user-picker").toggleClass("show");
-//     event.stopPropagation();
-//   });
-//   $(".user-picker").click(function (event) {
-//     event.stopPropagation();
-//   });
-//   $(document).click(function (event) {
-//     if (
-//       !$(event.target).closest(".user-picker").length &&
-//       !$(event.target).is(".user-picker-dropdown")
-//     ) {
-//       $(".user-picker").removeClass("show");
-//     }
-//   });
-//   $(".done-btn").click(function (event) {
-//     $(".user-picker").removeClass("show");
-//     event.stopPropagation();
-//   });
+  //   $(".user-picker-dropdown").on("click", function (event) {
+  //     $(".user-picker").toggleClass("show");
+  //     event.stopPropagation();
+  //   });
+  //   $(".user-picker").click(function (event) {
+  //     event.stopPropagation();
+  //   });
+  //   $(document).click(function (event) {
+  //     if (
+  //       !$(event.target).closest(".user-picker").length &&
+  //       !$(event.target).is(".user-picker-dropdown")
+  //     ) {
+  //       $(".user-picker").removeClass("show");
+  //     }
+  //   });
+  //   $(".done-btn").click(function (event) {
+  //     $(".user-picker").removeClass("show");
+  //     event.stopPropagation();
+  //   });
   $(".swap-icon").click(function () {
     $(this).find("i").toggleClass("rotate-icon");
   });

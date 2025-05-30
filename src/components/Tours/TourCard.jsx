@@ -1,40 +1,41 @@
 function TourCard({ tour }) {
-  const { title, price, Duration, images, locations } = tour;
+  const { title, price, Duration, images, locations, IsFeatured } = tour;
   return (
     <div className="">
       <div className="package-card">
         <div className="package-img imgEffect4">
           <a href="details-with-slider.html">
-            <img src="assets/images/package/package-4.png" alt="travello" />
+            <img src={images[0] ? images[0].cloudImage : ""} alt="travello" />
           </a>
-          <div className="image-badge">
-            <p className="pera">Featured</p>
-          </div>
+          {IsFeatured ? (
+            <div className="image-badge">
+              <p className="pera">Featured</p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="package-content">
           <h4 className="area-name">
-            <a href="details-with-slider.html">{tour.title}</a>
+            <a href="details-with-slider.html">{title ? title : ""}</a>
           </h4>
           <div className="location">
             <i className="ri-map-pin-line"></i>
-            <div className="name">{...locations}</div>
+            <div className="name"> {locations ? locations.join(", ") : ""}</div>
           </div>
           <div className="packages-person">
             <div className="count">
               <i className="ri-time-line"></i>
               <p className="pera">
-                {Duration} Days {Duration - 1} Night
+                {Duration ? Duration : ""} Days {Duration ? Duration : "" - 1}{" "}
+                Night
               </p>
             </div>
-            {/* <div className="count">
-                <i className="ri-user-line"></i>
-                <p className="pera">2 Person</p>
-              </div> */}
           </div>
           <div className="price-review">
             <div className="d-flex gap-10">
               <p className="light-pera">From</p>
-              <p className="pera">{price}</p>
+              <p className="pera">{price ? price : ""}</p>
             </div>
             <div className="rating">
               <i className="ri-star-s-fill"></i>

@@ -1,7 +1,9 @@
+
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { TAG_TYPES } from "./tags"; // Import the shared tags
-const API_URL = process.env.API_URL;
 
+const API_URL =TAG_TYPES.API_URL;
+console.log(API_URL);
 export const apiTourSlice = createApi({
   reducerPath: "apiTours",
   tagTypes: [TAG_TYPES.Tour],
@@ -9,15 +11,15 @@ export const apiTourSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   endpoints: (builder) => ({
     getTours: builder.query({
-      query: () => "/tour",
+      query: () => "/tours",
       providesTags: [TAG_TYPES.Tour],
     }),
     getTour: builder.query({
-      query: (tourId) => `/tour/${tourId}`,
+      query: (tourId) => `tours/tour/${tourId}`,
     }),
     addTour: builder.mutation({
       query: (tour) => ({
-        url: `/tour`,
+        url: `/tours/tour`,
         method: "POST",
         body: tour,
         headers: {
@@ -29,19 +31,19 @@ export const apiTourSlice = createApi({
     searchTours: builder.query({
       query: (params) => {
         const query = new URLSearchParams(params).toString();
-        return `/search?${query}`;
+        return `tours/search?${query}`;
       },
     }),
     deleteTour: builder.mutation({
       query: (tourId) => ({
-        url: `/tour/${tourId}`,
+        url: `tours/tour/${tourId}`,
         method: "DELETE",
       }),
       invalidatesTags: [TAG_TYPES.Tour],
     }),
     deleteSoftTour: builder.mutation({
       query: (tourId) => ({
-        url: `/tour/${tourId}`,
+        url: `tours/tour/${tourId}`,
         method: "DELETE",
       }),
       invalidatesTags: [TAG_TYPES.Tour],

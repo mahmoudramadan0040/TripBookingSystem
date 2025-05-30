@@ -1,7 +1,9 @@
-
-import Script from 'next/script';
-import './globals.css'
-
+"use client"
+import Script from "next/script";
+import "./globals.css";
+import { ReduxProvider } from "./Redux/ReduxProvider";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor} from "./Redux/store"
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -86,11 +88,14 @@ export default function RootLayout({ children }) {
           href="assets/css/main-style.css"
         />
         {/* <!-- RTL CSS::When Need RTL Uncomments File --> */}
-        {/* <!-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> --</link> */}
+        {/* <!ReduxProvider-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> --</link> */}
       </head>
       <body>
-        {children}
-
+        <ReduxProvider>
+          <PersistGate loading={null} persistor={persistor}>
+            {children}
+          </PersistGate>
+        </ReduxProvider>
         <Script
           src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
           strategy="beforeInteractive"

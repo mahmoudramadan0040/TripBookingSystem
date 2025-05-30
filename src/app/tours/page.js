@@ -1,16 +1,17 @@
-"use client"
+"use client";
 import TourList from "@/components/Tours/ToursList";
+import { useSelector } from "react-redux";
 import { useGetToursQuery } from "../Redux/slices/TourSlice";
 function Tours() {
+  const tours = useSelector((state) => state.shared.tours);
 
-    const {data}= useGetToursQuery();
-    console.log(data);
+  console.log(tours);
   return (
     <>
       <main>
-      {/* <TourFilters></TourFilters> */}
+        {/* <TourFilters></TourFilters> */}
 
-        <TourList></TourList>
+        <TourList tours={tours}></TourList>
       </main>
     </>
   );

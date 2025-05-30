@@ -1,7 +1,7 @@
 import TourCard from "./TourCard";
 import TourFilters from "./ToursFilters";
 
-function TourList() {
+function TourList({ tours }) {
   return (
     <>
       {/* <!-- Breadcrumbs S t a r t --> */}
@@ -37,6 +37,7 @@ function TourList() {
         <div className="container">
           <div className="row g-4">
             {/*----------- Map Tour Card Component -------------  */}
+
             <TourFilters></TourFilters>
             <div className="col-xl-9">
               <div className="showing-result">
@@ -74,14 +75,12 @@ function TourList() {
               </div>
               <br></br>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  gap-24  ">
-                <TourCard></TourCard>
-                <TourCard></TourCard>
-                <TourCard></TourCard>
-                <TourCard></TourCard>
-                <TourCard></TourCard>
-                <TourCard></TourCard>
-                <TourCard></TourCard>
-                <TourCard></TourCard>
+                {tours && tours.data
+                  ? tours.data.map((tour) => (
+                      <TourCard tour={tour} key={tour.id}></TourCard>
+                    ))
+                  : ""}
+                
               </div>
             </div>
           </div>

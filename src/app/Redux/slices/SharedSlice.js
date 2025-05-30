@@ -1,23 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const intialState = {
-
-}
-
+const initialState = {
+    tours:[]
+  };
 const sharedSlice = createSlice({
     name:"shared",
     initialState,
     reducers:{
-        // openDeleteModel:(state)=>{
-        //     state.DeleteDepartmentModel=true
-        // },
-        // closeDeleteModel:(state)=>{
-        //     state.DeleteDepartmentModel=false
-        // }
+        setTours(state, action) {
+            console.log(action.payload);
+            
+            state.tours = action.payload;
+          },
     }
 })
 export const {
     // openDeleteModel,
-
+    setTours
 } = sharedSlice.actions
 export default sharedSlice.reducer

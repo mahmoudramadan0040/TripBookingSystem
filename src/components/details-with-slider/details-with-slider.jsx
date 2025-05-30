@@ -20,6 +20,30 @@ export default function DetailsWithSlider() {
   function addToCart() {
     console.log(tourPackageDetails);
   }
+  //   --------------------- Select Date ---------------------
+  const today = new Date();
+
+  const formattedDate = today.toLocaleDateString("en-US", {
+    weekday: "long", // e.g., "Wednesday"
+    year: "numeric", // e.g., "2025"
+    month: "long", // e.g., "May"
+    day: "numeric", // e.g., "14"
+  });
+
+  const [selectedDate, setSelectedDate] = useState(formattedDate);
+  useEffect(() => {
+    const handleDateChange = () => {
+      console.log("Updated:", window.selectedDate);
+      setSelectedDate(window.selectedDate); // Optional: update React state
+    };
+
+    window.addEventListener("daterangeChanged", handleDateChange);
+
+    return () => {
+      window.removeEventListener("daterangeChanged", handleDateChange);
+    };
+  }, []);
+
   return (
     <div>
       <main>
@@ -216,7 +240,7 @@ export default function DetailsWithSlider() {
                         </div>
                       </div>
                       {/* / Tour Plan accordion */}
-
+              
                       {/* Tour Privacy Policy  */}
                       <div className="tour-details-content">
                         <h4 className="title">Policy</h4>
@@ -282,6 +306,17 @@ export default function DetailsWithSlider() {
                             <p className="pera">Price varies by group size</p>
                           </div>
                         </div>
+                        {/* Date Select */}
+                        <h4 className="heading-card">
+                          Select Date and Travelers
+                        </h4>
+                        <div className="date-time-dropdown-single">
+                          <i className="ri-time-line"></i>
+                          <p className="date-time-result">
+                            Wednesdsay, Jan 17, 2025
+                          </p>
+                        </div>
+                        {/* End Date Select */}
                         <div className="mt-30">
                           <button
                             type="submit"

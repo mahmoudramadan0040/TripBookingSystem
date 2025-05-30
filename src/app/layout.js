@@ -1,6 +1,6 @@
 import Script from "next/script";
 import "./globals.css";
-
+import { ReduxProvider } from "./Redux/ReduxProvider";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -57,38 +57,38 @@ export default function RootLayout({ children }) {
           rel="icon"
           type="image/x-icon"
           sizes="20x20"
-          href="assets/images/icon/favicon.png"
+          href="/assets/images/icon/favicon.png"
         />
         {/* <!-- Bootstrap --> */}
         <link
           rel="stylesheet"
           type="text/css"
-          href="assets/css/bootstrap-5.3.0.min.css"
+          href="/assets/css/bootstrap-5.3.0.min.css"
         />
         {/* <!-- Fonts & icon --> */}
         <link
           rel="stylesheet"
           type="text/css"
-          href="assets/css/remixicon.css"
+          href="/assets/css/remixicon.css"
         />
         <link
           rel="stylesheet"
           type="text/css"
-          href="assets/css/fonts-icon.css"
+          href="/assets/css/fonts-icon.css"
         />
         {/* <!-- Plugin --> */}
-        <link rel="stylesheet" type="text/css" href="assets/css/plugin.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/plugin.css" />
         {/* <!-- Main CSS --> */}
         <link
           rel="stylesheet"
           type="text/css"
-          href="assets/css/main-style.css"
+          href="/assets/css/main-style.css"
         />
         {/* <!-- RTL CSS::When Need RTL Uncomments File --> */}
         {/* <!-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> --</link> */}
       </head>
       <body>
-        {children}
+        <ReduxProvider>{children}</ReduxProvider>
 
         <Script
           src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"

@@ -9,37 +9,37 @@ export default function DetailsSlider() {
           <div className="swiper-wrapper">
             <div className="swiper-slide">
               <img
-                src="assets/images/gallery/tour-details-banner-three.png"
+                src="/assets/images/gallery/tour-details-banner-three.png"
                 alt="travello"
               />
             </div>
             <div className="swiper-slide">
               <img
-                src="assets/images/gallery/tour-details-banner.png"
+                src="/assets/images/gallery/tour-details-banner.png"
                 alt="travello"
               />
             </div>
             <div className="swiper-slide">
               <img
-                src="assets/images/gallery/tour-details-banner-two.png"
+                src="/assets/images/gallery/tour-details-banner-two.png"
                 alt="travello"
               />
             </div>
             <div className="swiper-slide">
               <img
-                src="assets/images/gallery/tour-details-banner-three.png"
+                src="/assets/images/gallery/tour-details-banner-three.png"
                 alt="travello"
               />
             </div>
             <div className="swiper-slide">
               <img
-                src="assets/images/gallery/tour-details-banner.png"
+                src="/assets/images/gallery/tour-details-banner.png"
                 alt="travello"
               />
             </div>
             <div className="swiper-slide">
               <img
-                src="assets/images/gallery/tour-details-banner-two.png"
+                src="/assets/images/gallery/tour-details-banner-two.png"
                 alt="travello"
               />
             </div>

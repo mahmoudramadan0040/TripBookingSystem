@@ -1,8 +1,8 @@
+"use client";
 import DetailsWithSlider from "@/components/details-with-slider/details-with-slider";
 
-export default function PackageDetails({ params }) {
+export default function TourDetails() {
     
-  console.log(params.id);
 
   return (
     <div>

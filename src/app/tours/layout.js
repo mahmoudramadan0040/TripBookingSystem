@@ -3,7 +3,7 @@ import TourHeader from "@/components/Tours/TourHeader";
 function TourLayout({ children }) {
   return (
     <>
-      <TourHeader></TourHeader>
+      {/* <TourHeader /> */}
       {children}
     </>
   );

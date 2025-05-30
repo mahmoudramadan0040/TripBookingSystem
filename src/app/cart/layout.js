@@ -13,7 +13,7 @@ function CartLayout({ children }) {
       <Script src="/assets/js/plugin.js" strategy="afterInteractive" />
       <Script src="/assets/js/main.js" strategy="afterInteractive" />
       
-   
+    
       {children}
     </>
     );

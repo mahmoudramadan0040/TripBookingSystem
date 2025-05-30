@@ -7,7 +7,7 @@ import { apiTransportSlice } from "./slices/TransportSlice";
 export const store = configureStore({
   reducer: {
     // Add the API slice reducer to the Redux store
-    shared: SharedSlice,
+    // shared: SharedSlice,
     [apiTourSlice.reducerPath]: apiTourSlice.reducer,
     [apiTransportSlice.reducerPath]: apiTransportSlice.reducer,
   },

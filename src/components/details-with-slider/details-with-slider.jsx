@@ -1,28 +1,57 @@
 "use client";
 
 import DetailsSlider from "../DetailsSlider";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function DetailsWithSlider() {
-  const [tourPackageDetails, setTourPackageDetails] = useState(null);
+export default function DetailsWithSlider({ data }) {
+  const router = useRouter();
 
-  useEffect(() => {
-    fetch("/assets/fullDayTours.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setTourPackageDetails(data["fullDayTours"][0]);
-        console.log("Fetched data:", data["fullDayTours"][0]);
-      })
-      .catch((error) => {
-        console.error("Failed to load JSON:", error);
-      });
-  }, []);
+  
+  const tourPackageDetails = data;
+
+  //   --------------------- Add tour to cart ---------------------
   function addToCart() {
+    // add the tour to Cart Store -- Make the code here
+    router.push('/home'); // Navigate to /cart
+    tourPackageDetails.tourDate = selectedDate;
+    tourPackageDetails.persons = guestCount;
     console.log(tourPackageDetails);
   }
+  // --------------------- Select Guest Count ---------------------
+  const [isOpen, setIsOpen] = useState(false);
+  const [guestCount, setGuestCount] = useState(1);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
+  const closeDropdown = (e) => {
+    e.stopPropagation();
+    setIsOpen(false);
+  };
+
+  const increaseGuest = () => {
+    setGuestCount((prev) => prev + 1);
+  };
+
+  const decreaseGuest = () => {
+    setGuestCount((prev) => (prev > 1 ? prev - 1 : 1));
+  };
   //   --------------------- Select Date ---------------------
   const today = new Date();
-
   const formattedDate = today.toLocaleDateString("en-US", {
     weekday: "long", // e.g., "Wednesday"
     year: "numeric", // e.g., "2025"
@@ -240,7 +269,7 @@ export default function DetailsWithSlider() {
                         </div>
                       </div>
                       {/* / Tour Plan accordion */}
-              
+
                       {/* Tour Privacy Policy  */}
                       <div className="tour-details-content">
                         <h4 className="title">Policy</h4>
@@ -312,11 +341,80 @@ export default function DetailsWithSlider() {
                         </h4>
                         <div className="date-time-dropdown-single">
                           <i className="ri-time-line"></i>
-                          <p className="date-time-result">
-                            Wednesdsay, Jan 17, 2025
-                          </p>
+                          <p className="date-time-result">{selectedDate}</p>
                         </div>
                         {/* End Date Select */}
+                        {/* # Persons Select */}
+                        <div
+                          className="dropdown-section position-relative user-picker-dropdown"
+                          ref={wrapperRef}
+                          onClick={() => setIsOpen(!isOpen)}
+                          // onClick={toggleDropdown}
+                        >
+                          <div className="d-flex gap-12 align-items-center">
+                            <i className="dropdown-icon ri-user-line"></i>
+                            <div className="custom-dropdown">
+                              <h4 className="title">Guests</h4>
+                              <div className="arrow">
+                                <i className="ri-arrow-down-s-line"></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="user-result px-6">
+                            {guestCount > 0 && (
+                              <span>{guestCount} person(s)</span>
+                            )}
+                          </div>
+
+                          {isOpen && (
+                            <div
+                              className={`user-picker dropdown-shadow ${
+                                isOpen ? "show" : ""
+                              }`}
+                              onClick={stopPropagation}
+                            >
+                              <div className="user-category">
+                                <div className="category-name">
+                                  <h4 className="title">Persons</h4>
+                                </div>
+                                <div className="qty-container">
+                                  <button
+                                    className="qty-btn-minus mr-1"
+                                    type="button"
+                                    onClick={decreaseGuest}
+                                  >
+                                    <i className="ri-subtract-fill"></i>
+                                  </button>
+                                  <input
+                                    type="text"
+                                    name="qty"
+                                    value={guestCount}
+                                    readOnly
+                                    className="input-qty input-rounded text-center"
+                                  />
+                                  <button
+                                    className="qty-btn-plus ml-1"
+                                    type="button"
+                                    onClick={increaseGuest}
+                                  >
+                                    <i className="ri-add-fill"></i>
+                                  </button>
+                                </div>
+                              </div>
+
+                              <div className="btn-section">
+                                <button
+                                  className="done-btn no-border"
+                                  onClick={closeDropdown}
+                                >
+                                  Done
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        {/* End # Persons Select */}
                         <div className="mt-30">
                           <button
                             type="submit"

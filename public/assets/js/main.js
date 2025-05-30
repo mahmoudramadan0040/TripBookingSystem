@@ -722,7 +722,7 @@
       changeLogo.src = imagePath;
     });
   }
-  updateLogoOnTheme();
+  // updateLogoOnTheme();
   // Button icon change
   const themeModeAction = () => {
     if (localStorage.theme === "dark") {

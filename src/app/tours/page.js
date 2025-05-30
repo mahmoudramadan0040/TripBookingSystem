@@ -3,8 +3,7 @@ import TourList from "@/components/Tours/ToursList";
 import { useSelector } from "react-redux";
 import { useGetToursQuery } from "../Redux/slices/TourSlice";
 function Tours() {
-
-    const tours = useSelector((state)=>state.shared.tours)
+  const tours = useSelector((state) => state.shared.tours);
 
   console.log(tours);
   return (
@@ -12,7 +11,7 @@ function Tours() {
       <main>
         {/* <TourFilters></TourFilters> */}
 
-        <TourList></TourList>
+        <TourList tours={tours}></TourList>
       </main>
     </>
   );

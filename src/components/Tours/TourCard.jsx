@@ -26,10 +26,6 @@ function TourCard({ tour }) {
                 {Duration} Days {Duration - 1} Night
               </p>
             </div>
-            {/* <div className="count">
-                <i className="ri-user-line"></i>
-                <p className="pera">2 Person</p>
-              </div> */}
           </div>
           <div className="price-review">
             <div className="d-flex gap-10">

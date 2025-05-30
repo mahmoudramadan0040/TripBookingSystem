@@ -16,7 +16,7 @@ export default function TourDetails({ params }) {
       liveTourGuide: true,
       pickupIncluded: "Please wait 10 minutes before your scheduled time.",
       privateGroup: true,
-    },
+    }, 
     location: {
       country: "Egypt",
       city: "Giza",

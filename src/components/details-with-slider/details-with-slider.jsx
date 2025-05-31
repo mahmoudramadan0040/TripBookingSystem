@@ -130,7 +130,7 @@ export default function DetailsWithSlider({ tour }) {
                       <div className="location">
                         <i className="ri-map-pin-line"></i>
                         <div className="name">
-                          Egypt
+                          Egypt, {tourPackageDetails?.Governorate || ""}
                         </div>
                       </div>
                       <div className="divider"></div>

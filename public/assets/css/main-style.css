@@ -21659,7 +21659,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 @media (max-width: 991px) and (max-width: 420px) {
   .plan-section {
-    -ms-grid-columns: (1fr)[1];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -23692,7 +23692,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 @media (max-width: 991px) and (max-width: 420px) {
   .plan-section-two {
-    -ms-grid-columns: (1fr)[1];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -25077,7 +25077,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 @media (max-width: 991px) and (max-width: 420px) {
   .plan-section-two {
-    -ms-grid-columns: (1fr)[1];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(1, 1fr);
   }
 }

@@ -8,6 +8,7 @@ import { useGetToursQuery } from "../Redux/slices/TourSlice";
 import { useDispatch } from "react-redux";
 import { setTours } from "../Redux/slices/SharedSlice";
 import { useEffect } from "react";
+import FooterContentComponent from "@/components/Home/Content/FooterContentComponent";
 function HomePage() {
   const { data: tours, isSuccess } = useGetToursQuery();
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function HomePage() {
       <BannerContentComponent></BannerContentComponent>
       <SearchTransportComponent></SearchTransportComponent>
       <PopularPakageComponent></PopularPakageComponent>
+      <FooterContentComponent></FooterContentComponent>
     </Fragment>
   );
 }

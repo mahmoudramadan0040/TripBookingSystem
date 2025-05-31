@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 function TourCard({ tour }) {
+  console.log(tour);
   const { title, price, Duration, images, locations, IsFeatured, id } = tour;
   return (
-    <div className="">
-      <div className="package-card">
+  
+      <div className="package-card h-calc">
         <div className="package-img imgEffect4">
           <Link href={`/tours/${id}`}>
-            <img src={images[0] ? images[0].cloudImage : ""} alt="travello" />
+            {images && images[0] ? <img src={images[0].cloudImage} alt="travello" />:""}
           </Link>
           {IsFeatured ? (
             <div className="image-badge">
@@ -46,7 +47,7 @@ function TourCard({ tour }) {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
 

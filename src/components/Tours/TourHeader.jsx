@@ -15,9 +15,9 @@ function TourHeader() {
                       <div className="top-header-left d-flex align-items-center">
                         {/* <!-- Logo--> */}
                         <div className="logo">
-                          <Link href="home">
+                          <Link href="/home">
                             <img
-                              src="assets/images/logo/logo.png"
+                              src="/assets/images/logo/logo.png"
                               alt="logo"
                               className="changeLogo"
                             />

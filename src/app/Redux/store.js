@@ -1,3 +1,4 @@
+"use client"
 // store.js
 import { configureStore } from "@reduxjs/toolkit";
 import SharedSlice from "./slices/SharedSlice";

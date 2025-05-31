@@ -6,8 +6,67 @@ import { useState, useRef, useEffect } from "react";
 export default function TourCart() {
   const [cartItems, setCartItems] = useState([
     {
-      title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
       price: 30,
+      title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
+      summary:
+        "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
+      tourDuration: "Up to 8 hours",
+      activityDetails: {
+        reserveNowPayLater: true,
+        duration: "4 hours",
+        skipTheTicketLine: true,
+        liveTourGuide: true,
+        pickupIncluded: "Please wait 10 minutes before your scheduled time.",
+        privateGroup: true,
+      },
+      Governorate: "Giza",
+      highlights: [
+        "Explore the history and culture of Ancient Egypt",
+        "Wander through 120,000 masterpieces of art at the Egyptian Museum",
+        "See the treasures from the Tomb of Tutankhamen",
+        "Visit the Pyramids of Giza and Great Sphinx",
+        "Pick up some souvenir bargains and learn to haggle at the Khan El Khalili Bazaar",
+      ],
+      fullDescription:
+        "Starts with Pickup from your hotel in either Cairo or Giza by tour guide to start your full day tour visiting Giza Pyramids where you visit the Great Pyramids - Cheops, Chephren & Mykerinos then Visit the Valley Temple where the Priests Mummified the dead body of King Chephren. Also there you will have a close-up look at The Sphinx. Then continue your day tour to the Egyptian Museum of antiquities. It exhibits over 250,000 genuine artifacts including treasures of Tutankhamon. Then visit the Khan El Khalili Bazaar known for trading fine brassware, copper, perfumes, leather, silver, gold, antiques and much more.",
+      included: [
+        "Hotel pickup and drop-off",
+        "Transportation by air-conditioned vehicle",
+        "Entry ticket",
+        "Egyptologist tour guide",
+        "Shopping at Papyrus Gallery and Essential Oils Factory",
+        "Bottle of water",
+      ],
+      images: [
+        {
+          id: "e3c0fb0d-d4a3-4733-ab11-e8bdf9c6d64f",
+          localImage: null,
+          cloudImage:
+            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636634/uploads/1748636633766-product-03.png.png",
+          publicId: "uploads/1748636633766-product-03.png",
+          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+          createdAt: "2025-05-30T20:23:58.478Z",
+          updatedAt: "2025-05-30T20:23:58.478Z",
+        },
+        {
+          id: "a3afdcc8-a511-4030-bb40-f82c9f760749",
+          localImage: null,
+          cloudImage:
+            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636637/uploads/1748636633754-package-7.jpg.jpg",
+          publicId: "uploads/1748636633754-package-7.jpg",
+          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+          createdAt: "2025-05-30T20:23:58.478Z",
+          updatedAt: "2025-05-30T20:23:58.478Z",
+        },
+      ],
+      locations: ["Giza pyramids", "Egyptian museum", "Khan el Khalili Bazaar"],
+      excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
+      tourDate: "Thursday, Jun 5, 2025",
+      persons: 3,
+    },
+    {
+      price: 60,
+      title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
       summary:
         "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
       tourDuration: "Up to 8 hours",
@@ -40,71 +99,32 @@ export default function TourCart() {
         "Shopping at Papyrus Gallery and Essential Oils Factory",
         "Bottle of water",
       ],
+      images: [
+        {
+          id: "e3c0fb0d-d4a3-4733-ab11-e8bdf9c6d64f",
+          localImage: null,
+          cloudImage:
+            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636634/uploads/1748636633766-product-03.png.png",
+          publicId: "uploads/1748636633766-product-03.png",
+          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+          createdAt: "2025-05-30T20:23:58.478Z",
+          updatedAt: "2025-05-30T20:23:58.478Z",
+        },
+        {
+          id: "a3afdcc8-a511-4030-bb40-f82c9f760749",
+          localImage: null,
+          cloudImage:
+            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636637/uploads/1748636633754-package-7.jpg.jpg",
+          publicId: "uploads/1748636633754-package-7.jpg",
+          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+          createdAt: "2025-05-30T20:23:58.478Z",
+          updatedAt: "2025-05-30T20:23:58.478Z",
+        },
+      ],
+      locations: ["Giza pyramids", "Sphinx"],
       excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
-    },
-    {
-      price: 45,
-      title: "Dahshur pyramids, Saqqara, Memphis city and Giza pyramids",
-      summary:
-        "Explore the Cairo's ancient pyramids on a private guided day tour. See the oldest smooth Egyptian pyramid at Dahshur, and the famous step pyramid at Sakkara, Memphis city then marvel at the Great Pyramid of Giza.",
-      tourDuration: "Up to 8 hours",
-      activityDetails: {
-        reserveNowPayLater: true,
-        duration: "4 hours",
-        skipTheTicketLine: true,
-        liveTourGuide: true,
-        pickupIncluded: "Please wait 10 minutes before your scheduled time.",
-        privateGroup: true,
-      },
-      highlights: [
-        "Marvel at ancient pyramids of Giza, Sakkara, Memphis city and Dahshur on a Cairo private tour",
-        "Discover the Bent Pyramid and Red Pyramid at the ancient site of Dahshur",
-        "Admire the Step Pyramid at Sakkara, the oldest stone building in all of Egypt",
-        "Explore the Great Pyramids and Great Sphinx of Giza on an unforgettable visit",
-        "Discover Memphis, the heart of ancient Egypt",
-      ],
-      fullDescription:
-        "After pickup from your Cairo hotel, begin your tour at Sakkara, the city of the dead with the famous Step Pyramid of Djoser. Then visit Memphis, the ancient capital, to see the colossal Statue of Ramses II and the alabaster Sphinx. Continue to Dahshur to see the Bent Pyramid and the Red Pyramid. End the tour at the Giza plateau where you will explore the Great Pyramid of Cheops, the Pyramid of Chephren, and the smaller Pyramid of Mykerinus, and see the Great Sphinx.",
-      included: [
-        "Hotel pickup and drop-off",
-        "Transportation by air-conditioned vehicle",
-        "Entry ticket",
-        "Egyptologist tour guide",
-        "Shopping at Papyrus Gallery and Essential Oils Factory",
-        "Bottle of water",
-      ],
-      excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
-    },
-    {
-      price: 55,
-      title: "Dahshur pyramids, Saqqara and Memphis city",
-      tour_duration: "Up to 8 hours",
-      about: {
-        reserve_now_pay_later: true,
-        duration: "4 hours",
-        skip_ticket_line: true,
-        live_tour_guide: true,
-        pickup_included: true,
-        private_group: true,
-      },
-      highlights: [
-        "Marvel at the Step Pyramid of Djoser in Saqqara.",
-        "Gaze upon the remarkable Bent & Red Pyramids.",
-        "Discover Memphis, the heart of ancient Egypt.",
-        "Stand before the colossal Statue of Ramses II.",
-        "Witness the mysterious alabaster Sphinx.",
-      ],
-      description:
-        "Your adventure begins in the morning as our expert guide whisks you away from your hotel to the awe-inspiring Step Pyramid of Djoser in Saqqara. Marvel at the world's earliest colossal stone monument, erected during the 3rd Dynasty for the venerable King Djoser.\n\nYour excursion continues 8 miles away to Dahshur, where you'll step inside the Red Pyramid, hailed as history's inaugural true pyramid. Gaze upon the Bent Pyramid, renowned for its remarkable preservation. These architectural wonders offer a glimpse into the ingenuity of ancient builders from the Old Kingdom.\n\nNext, we transport you for another 6 miles to the storied city of Memphis, established by the illustrious King Menes. Once the heart of Egyptian rule and culture. Here, we stand in the presence of the colossal Statue of Ramses II and the enigmatic alabaster Sphinx, symbols of a civilization that has captivated the world.\n\nThis is more than a tour; it's a passage through time, take advantage of this opportunity to witness the most incredible ancient sites near Cairo in a single day.\n\nSun Pyramids Tours ensures a transparent and hassle-free experience. You won't encounter any hidden surprises or unexpected costs. Secure your spot on this epic voyage into history today.",
-      included: [
-        "Hotel pickup and drop-off",
-        "Transportation by air-conditioned vehicle",
-        "Entry ticket",
-        "Egyptologist tour guide",
-        "Shopping at Papyrus Gallery and Essential Oils Factory",
-        "Bottle of water",
-      ],
-      excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
+      tourDate: "Thursday, Jun 5, 2025",
+      persons: 3,
     },
   ]);
 
@@ -250,8 +270,10 @@ export default function TourCart() {
                         <thead>
                           <tr>
                             <th className="text-title font-600">Product</th>
+                            <th className="text-title font-600">Date</th>
+                            <th className="text-title font-600">Persons</th>
                             <th className="text-title font-600">Price</th>
-                            <th className="text-title font-600">Remove</th>
+                            <th className="text-title font-600 pr-3">Remove</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -261,7 +283,7 @@ export default function TourCart() {
                                 <td className="d-flex align-items-center gap-10">
                                   <div>
                                     <img
-                                      src="assets/images/destination/destination-01.png"
+                                      src="/assets/images/destination/destination-01.png"
                                       className="table-photo"
                                       alt="profile"
                                     />
@@ -272,8 +294,16 @@ export default function TourCart() {
                                     </span>
                                   </div>
                                 </td>
-                                <td className="font-600">{item.price} $</td>
-                                <td className="text-start">
+                                <td className="font-600 text-start">
+                                  {item.tourDate}
+                                </td>
+                                <td className="font-600 text-center">
+                                  {item.persons}
+                                </td>
+                                <td className="font-600 text-center">
+                                  ${item.price}
+                                </td>
+                                <td className="text-center">
                                   <button
                                     className="border-0 bg-transparent badge-basic-danger-text text-18"
                                     onClick={() => handleRemoveItem(index)}
@@ -321,7 +351,7 @@ export default function TourCart() {
                             <ul className="payment-gateway-list mb-10">
                               <li className="single-gateway-item selected">
                                 <img
-                                  src="assets/images/icon/payment-method1.png"
+                                  src="/assets/images/icon/payment-method1.png"
                                   alt="img"
                                 />
                               </li>
@@ -374,88 +404,6 @@ export default function TourCart() {
                           <p className="pera">Price varies by group size</p>
                         </div>
                       </div>
-                      {/* Date Select */}
-                      <h4 className="heading-card">
-                        Select Date and Travelers
-                      </h4>
-                      <div className="date-time-dropdown-single">
-                        <i className="ri-time-line"></i>
-                        <p className="date-time-result">
-                          Wednesdsay, Jan 17, 2025
-                        </p>
-                      </div>
-                      {/* End Date Select */}
-                      {/* # Persons Select */}
-                      <div
-                        className="dropdown-section position-relative user-picker-dropdown"
-                        ref={wrapperRef}
-                        onClick={() => setIsOpen(!isOpen)}
-                        // onClick={toggleDropdown}
-                      >
-                        <div className="d-flex gap-12 align-items-center">
-                          <i className="dropdown-icon ri-user-line"></i>
-                          <div className="custom-dropdown">
-                            <h4 className="title">Guests</h4>
-                            <div className="arrow">
-                              <i className="ri-arrow-down-s-line"></i>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="user-result px-6">
-                          {guestCount > 0 && (
-                            <span>{guestCount} person(s)</span>
-                          )}
-                        </div>
-
-                        {isOpen && (
-                          <div
-                            className={`user-picker dropdown-shadow ${
-                              isOpen ? "show" : ""
-                            }`}
-                            onClick={stopPropagation}
-                          >
-                            <div className="user-category">
-                              <div className="category-name">
-                                <h4 className="title">Persons</h4>
-                              </div>
-                              <div className="qty-container">
-                                <button
-                                  className="qty-btn-minus mr-1"
-                                  type="button"
-                                  onClick={decreaseGuest}
-                                >
-                                  <i className="ri-subtract-fill"></i>
-                                </button>
-                                <input
-                                  type="text"
-                                  name="qty"
-                                  value={guestCount}
-                                  readOnly
-                                  className="input-qty input-rounded text-center"
-                                />
-                                <button
-                                  className="qty-btn-plus ml-1"
-                                  type="button"
-                                  onClick={increaseGuest}
-                                >
-                                  <i className="ri-add-fill"></i>
-                                </button>
-                              </div>
-                            </div>
-
-                            <div className="btn-section">
-                              <button
-                                className="done-btn no-border"
-                                onClick={closeDropdown}
-                              >
-                                Done
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                      {/* End # Persons Select */}
                       <div className="mt-30">
                         <button
                           type="submit"

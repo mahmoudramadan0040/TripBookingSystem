@@ -2,7 +2,8 @@
 import DetailsWithSlider from "@/components/details-with-slider/details-with-slider";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
+import NotFound from "@/components/NotFound";
 export default function TourDetails() {
   useEffect(() => {
     const script = document.createElement("script");
@@ -14,11 +15,16 @@ export default function TourDetails() {
       document.body.removeChild(script); // clean up on unmount
     };
   }, []);
+
   const { id } = useParams();
-  // const tour = useSelector((state) =>
-  //   state.shared.tours.data.find((t) => t.id === id)
-  // );
-  const tour = {
+  const tour = useSelector((state) =>
+    state.shared.tours.data.find((t) => t.id === id)
+  );
+  if (!tour) {
+    redirect('/a5sd15')
+    // return <NotFound />; // Render your 404 page
+  }
+  const tour2 = {
       price: 30,
       title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
       summary:

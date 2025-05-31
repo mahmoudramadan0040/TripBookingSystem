@@ -148,19 +148,6 @@ export default function TourCart() {
         setIsOpen(false);
       }
     };
-    // const handleClickOutside = (event) => {
-    //   const picker = document.querySelector(".user-picker");
-    //   const dropdown = document.querySelector(".user-picker-dropdown");
-
-    //   if (
-    //     picker &&
-    //     dropdown &&
-    //     !picker.contains(event.target) &&
-    //     !dropdown.contains(event.target)
-    //   ) {
-    //     setIsOpen(false);
-    //   }
-    // };
 
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);

@@ -17,14 +17,14 @@ export default function TourDetails() {
   }, []);
 
   const { id } = useParams();
-  const tour = useSelector((state) =>
-    state.shared.tours.data.find((t) => t.id === id)
-  );
+  // const tour = useSelector((state) =>
+  //   state.shared.tours.data.find((t) => t.id === id)
+  // );
   if (!tour) {
     redirect('/a5sd15')
     // return <NotFound />; // Render your 404 page
   }
-  const tour2 = {
+  const tour = {
       price: 30,
       title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
       summary:

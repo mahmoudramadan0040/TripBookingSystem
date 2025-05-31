@@ -17,7 +17,7 @@ function TourHeader() {
                         <div className="logo">
                           <Link href="home">
                             <img
-                              src="assets/images/logo/logo.png"
+                              src="/assets/images/logo/logo.png"
                               alt="logo"
                               className="changeLogo"
                             />
@@ -322,7 +322,7 @@ function TourHeader() {
                         <div className="search-flex">
                           <div className="content-img">
                             <img
-                              src="assets/images/gallery/search-img-1.jpeg"
+                              src="/assets/images/gallery/search-img-1.jpeg"
                               alt="travello"
                             />
                           </div>
@@ -345,7 +345,7 @@ function TourHeader() {
                         <div className="search-flex">
                           <div className="content-img">
                             <img
-                              src="assets/images/gallery/search-img-2.jpeg"
+                              src="/assets/images/gallery/search-img-2.jpeg"
                               alt="travello"
                             />
                           </div>
@@ -369,7 +369,7 @@ function TourHeader() {
                         <div className="search-flex">
                           <div className="content-img">
                             <img
-                              src="assets/images/gallery/search-img-3.jpeg"
+                              src="/assets/images/gallery/search-img-3.jpeg"
                               alt="travello"
                             />
                           </div>
@@ -395,7 +395,7 @@ function TourHeader() {
                         <div className="search-flex">
                           <div className="content-img">
                             <img
-                              src="assets/images/gallery/search-img-1.jpeg"
+                              src="/assets/images/gallery/search-img-1.jpeg"
                               alt="travello"
                             />
                           </div>
@@ -418,7 +418,7 @@ function TourHeader() {
                         <div className="search-flex">
                           <div className="content-img">
                             <img
-                              src="assets/images/gallery/search-img-2.jpeg"
+                              src="/assets/images/gallery/search-img-2.jpeg"
                               alt="travello"
                             />
                           </div>
@@ -442,7 +442,7 @@ function TourHeader() {
                         <div className="search-flex">
                           <div className="content-img">
                             <img
-                              src="assets/images/gallery/search-img-3.jpeg"
+                              src="/assets/images/gallery/search-img-3.jpeg"
                               alt="travello"
                             />
                           </div>

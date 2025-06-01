@@ -1,21 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    tours:[]
-  };
+  tours: [],
+};
 const sharedSlice = createSlice({
-    name:"shared",
-    initialState,
-    reducers:{
-        setTours(state, action) {
-            console.log(action.payload);
-            
-            state.tours = action.payload;
-          },
-    }
-})
+  name: "shared",
+  initialState,
+  reducers: {
+    setTours(state, action) {
+      console.log(action.payload);
+
+      state.tours = action.payload;
+    },
+  },
+});
 export const {
-    // openDeleteModel,
-    setTours
-} = sharedSlice.actions
-export default sharedSlice.reducer
+  // openDeleteModel,
+  setTours,
+} = sharedSlice.actions;
+export default sharedSlice.reducer;

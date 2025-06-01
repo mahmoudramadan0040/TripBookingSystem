@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useGetToursQuery } from "../Redux/slices/TourSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useMemo } from "react";
 function Tours() {
   let tours = useSelector((state) => state.shared.tours);
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function Tours() {
   }, [data, tours, dispatch]);
 
 
-  
+
   return (
     <>
       <main>

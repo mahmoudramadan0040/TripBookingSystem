@@ -37,16 +37,6 @@ function TourList({ tours }) {
     { value: "new", label: "Sort by Newest" },
   ];
   const customStyles = {
-    // control: (provided, state) => ({
-    //   ...provided,
-    //   backgroundColor: '#fef3c7',      // yellow-100 background
-    //   borderColor: state.isFocused ? '#fbbf24' : '#fbbf24', // yellow-400 border on focus and normal
-    //   boxShadow: state.isFocused ? '0 0 0 2px #fbbf24' : null, // yellow ring on focus
-    //   '&:hover': {
-    //     borderColor: '#fbbf24', // yellow border on hover
-    //   },
-    //   color: '#92400e', // dark yellow text
-    // }),
     menu: (provided) => ({
       ...provided,
       backgroundColor: '#fef3c7', // yellow background in dropdown menu

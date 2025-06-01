@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from 'next/navigation'; // App Router uses 'next/navigation'
+import { useRouter } from "next/navigation"; // App Router uses 'next/navigation'
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "@/app/Redux/slices/SharedSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function TourCart() {
   const cartItems = useSelector((state) => state.shared.cart);
@@ -37,6 +39,7 @@ export default function TourCart() {
 
   const handleRemoveItem = (index) => {
     dispatch(removeFromCart(index));
+    toast.success('🗑️ Item removed from your cart!');
   };
 
   //   --------------------- Agree Terms ---------------------
@@ -68,6 +71,7 @@ export default function TourCart() {
   }
   return (
     <>
+      <Toaster />
       <main>
         {/* Breadcrumbs S t a r t  */}
         <section className="breadcrumbs-area breadcrumb-bg">

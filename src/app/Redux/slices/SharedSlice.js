@@ -48,5 +48,6 @@ export const {
   setTours,
   setToCart,
   clearCart,
+  removeFromCart
 } = sharedSlice.actions;
 export default sharedSlice.reducer;

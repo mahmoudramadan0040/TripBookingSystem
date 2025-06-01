@@ -129,8 +129,8 @@ export default function TourCart() {
                                 <td className="d-flex align-items-center gap-10">
                                   <div>
                                     <img
-                                      src="/assets/images/destination/destination-01.png"
-                                      className="table-photo"
+                                      src={item.images[0].cloudImage}
+                                      className="table-photo max-w-30"
                                       alt="profile"
                                     />
                                   </div>

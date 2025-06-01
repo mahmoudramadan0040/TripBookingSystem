@@ -1,6 +1,36 @@
-import { useEffect } from "react";
+import {
+  setSelectedGovernorate,
+  setSelectedPrice,
+  setSelectedTypeTour,
+} from "@/app/Redux/slices/SharedSlice";
+import { useDispatch } from "react-redux";
 
 function TourFilters() {
+  const dispatch = useDispatch();
+  const handelChangeLocation = (e) => {
+    dispatch(setSelectedGovernorate(e.target.value));
+  };
+
+  const handelChangeTypeTour = (e) => {
+    dispatch(setSelectedTypeTour(e.target.value));
+    console.log(e.target.value);
+  };
+  const handleApply = () => {
+    const amountInput = document.getElementById("amount");
+    if (!amountInput) return;
+    console.log(amountInput.value);
+
+    const value = amountInput.value; // e.g., "100 - 500"
+    const [min, max] = value
+      .split("-")
+      .map((val) => parseInt(val.replace("$", "").trim(), 10));
+    console.log(min, max);
+    if (!isNaN(min) && !isNaN(max)) {
+      console.log(min, max);
+
+      dispatch(setSelectedPrice([min, max])); // Send to Redux
+    }
+  };
   return (
     <div className="col-xl-3">
       <div className="search-filter-section">
@@ -35,16 +65,19 @@ function TourFilters() {
                 <i className="ri-map-pin-line"></i>
                 <h4 className="select2-title">Destination</h4>
               </div>
-              <select className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-2">
+              <select
+                onChange={handelChangeLocation}
+                className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-2"
+              >
                 <option value="">Select an destination</option>
-                <option value="1">Cairo</option>
-                <option value="2">Giza</option>
-                <option value="3">Luxor </option>
-                <option value="4">Alexandria</option>
-                <option value="5">Sharm El Sheikh </option>
-                <option value="6">Hurghada </option>
-                <option value="7">Dahab </option>
-                <option value="8">Sohag </option>
+                <option value="Cairo">Cairo</option>
+                <option value="Giza">Giza</option>
+                <option value="Luxor">Luxor </option>
+                <option value="Alexandria">Alexandria</option>
+                <option value="Sharm El Sheikh">Sharm El Sheikh </option>
+                <option value="Hurghada">Hurghada </option>
+                <option value="Dahab">Dahab </option>
+                <option value="Sohag">Sohag </option>
               </select>
             </div>
             <div className="select-dropdown-section">
@@ -52,11 +85,14 @@ function TourFilters() {
                 <i className="ri-flight-takeoff-fill"></i>
                 <h4 className="select2-title">Tour Type</h4>
               </div>
-              <select className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-2">
+              <select
+                onChange={handelChangeTypeTour}
+                className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-2"
+              >
                 <option value="">Select an tour type</option>
-                <option value="1">Full Day </option>
-                <option value="2">Half Day</option>
-                <option value="3">Other</option>
+                <option value="full-day">Full Day </option>
+                <option value="half-day">Half Day</option>
+                <option value="other">Other</option>
               </select>
             </div>
             {/* <div className="dropdown-section">
@@ -71,7 +107,6 @@ function TourFilters() {
               </div>
               <div className="date-result">01/12/2025</div>
             </div> */}
-            
           </div>
         </div>
         {/* <!-- / --> */}
@@ -100,7 +135,7 @@ function TourFilters() {
                 <p className="pera">price: </p>{" "}
                 <input type="text" id="amount" readOnly />
                 <div className="button-section">
-                  <a href="javascript:void(0)" className="apply-btn">
+                  <a onClick={handleApply} className="apply-btn">
                     Apply
                   </a>
                 </div>

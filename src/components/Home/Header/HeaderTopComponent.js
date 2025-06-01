@@ -23,7 +23,7 @@ function HeaderTopComponent() {
                                 {/* <!-- Top Left Side --> */}
                                 {/* <!-- Logo--> */}
                                 <div className="logo">
-                                    <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo" className="changeLogo"/></a>
+                                    <a href="index.html"><img src="/assets/images/logo/logo.png" alt="logo" className="changeLogo"/></a>
                                 </div>
                                 <div className="header-right-three pl-15 d-none d-lg-flex">
                                     <div className="lang">

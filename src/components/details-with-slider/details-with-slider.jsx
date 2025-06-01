@@ -10,7 +10,7 @@ export default function DetailsWithSlider({ tour }) {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.shared.cart);
   console.log(cartData);
-  const isInCart = cartData.some((item) => item.id === tour.id);
+  const isInCart = cartData?.some((item) => item.id === tour.id);
   useEffect(() => {
     
     if (isInCart) {

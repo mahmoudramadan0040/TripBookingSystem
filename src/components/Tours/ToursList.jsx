@@ -3,33 +3,36 @@ import TourCard from "./TourCard";
 import Select from "react-select";
 import TourFilters from "./ToursFilters";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-function TourList({ tours }) {
-  const data = useSelector((state) => state.shared.tours);
-  const [sortBy, setSortBy] = useState("popular");
-  const handleSortChange = (e) => {
-    console.log(e.target.value);
-    setSortBy(e.target.value);
-  };
-  // console.log(tours)
-  const sortedTours = tours?.data?.slice().sort((a, b) => {
-    switch (sortBy) {
-      case "low":
-        console.log("low");
-        return Number(a.price) - Number(b.price); // low to high
-      case "high":
-        console.log("high");
-        return Number(b.price) - Number(a.price); // high to low
-      case "new":
-        return (
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        ); // newest first
-      case "popular":
-      default:
-        return 0; // no sort or original order
-    }
-  });
 
+import { useSelector,useDispatch } from "react-redux";
+import { selectFilteredSortedTours, setSortBy } from "@/app/Redux/slices/SharedSlice";
+function TourList({ tours }) {
+  const dispatch=useDispatch();
+  const data = useSelector((state) => state.shared.tours);
+  // console.log(tours)
+  // const sortedTours = tours?.data?.slice().sort((a, b) => {
+  //   switch (sortBy) {
+  //     case "low":
+  //       console.log("low");
+  //       return Number(a.price) - Number(b.price); // low to high
+  //     case "high":
+  //       console.log("high");
+  //       return Number(b.price) - Number(a.price); // high to low
+  //     case "new":
+  //       return (
+  //         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  //       ); // newest first
+  //     case "popular":
+  //     default:
+  //       return 0; // no sort or original order
+  //   }
+  // });
+
+  const sortedTours = useSelector(selectFilteredSortedTours);
+  const handleSortChange = e => {
+    console.log(e.value)
+    dispatch(setSortBy(e.value));
+  };
   const options = [
     { value: "popular", label: "Sort by Popular" },
     { value: "low", label: "Price low to high" },
@@ -39,17 +42,17 @@ function TourList({ tours }) {
   const customStyles = {
     menu: (provided) => ({
       ...provided,
-      backgroundColor: '#fef3c7', // yellow background in dropdown menu
+      backgroundColor: "#fef3c7", // yellow background in dropdown menu
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isFocused ? '#fde68a' : '#fef3c7', // brighter yellow on hover
-      color: '#92400e',
-      cursor: 'pointer',
+      backgroundColor: state.isFocused ? "#fde68a" : "#fef3c7", // brighter yellow on hover
+      color: "#92400e",
+      cursor: "pointer",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: '#92400e', // dark yellow selected text
+      color: "#92400e", // dark yellow selected text
     }),
   };
   return (
@@ -116,11 +119,12 @@ function TourList({ tours }) {
                     </svg>
                   </div>
                   <div className="sorting-dropdown">
-                    <Select className="bg-yellow-100 border-yellow-300 rounded p-1 m-1 focus:ring-yellow-500 
+                    <Select
+                      className="bg-yellow-100 border-yellow-300 rounded p-1 m-1 focus:ring-yellow-500 
              focus:border-yellow-500 focus:border focus:bg-yellow-100 focus:text-yellow-500"
                       options={options}
                       defaultValue={options[0]}
-                      onChange={(selected) => setSortBy(selected.value)}
+                      onChange={handleSortChange}
                       styles={customStyles}
                     />
                   </div>

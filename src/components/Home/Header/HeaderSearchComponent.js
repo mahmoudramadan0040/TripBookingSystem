@@ -26,7 +26,7 @@ function HeaderSearchComponent() {
                                 <a href="details-with-slider.html">
                                     <div className="search-flex">
                                         <div className="content-img">
-                                            <img src="assets/images/gallery/search-img-1.jpeg" alt="travello"/>
+                                            <img src="/assets/images/gallery/search-img-1.jpeg" alt="travello"/>
                                         </div>
                                         <div className="content">
                                             <h4 className="title line-clamp-1">

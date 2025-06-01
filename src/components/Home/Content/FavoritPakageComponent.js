@@ -11,11 +11,11 @@ function FavoritPakageComponent() {
   const nextRef = useRef(null);
   const [initSwiper, setInitSwiper] = useState(false);
   const tours = useSelector((state) => state.shared.tours);
-  let FavoriteTours = tours.data.filter((t) => t.IsFeatured == true);
+  let FavoriteTours = tours?.data?.filter((t) => t.IsFeatured == true);
 
   useEffect(() => {
     if (tours) {
-      FavoriteTours = tours.data.filter((t) => t.IsFetured == true);
+      FavoriteTours = tours?.data?.filter((t) => t.IsFetured == true);
     }
   }, [tours]);
 

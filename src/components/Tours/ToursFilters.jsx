@@ -37,9 +37,14 @@ function TourFilters() {
               </div>
               <select className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-2">
                 <option value="">Select an destination</option>
-                <option value="1">Sydney, Australia</option>
-                <option value="2">USA, Turkish </option>
-                <option value="3">Chittagong, Turkish </option>
+                <option value="1">Cairo</option>
+                <option value="2">Giza</option>
+                <option value="3">Luxor </option>
+                <option value="4">Alexandria</option>
+                <option value="5">Sharm El Sheikh </option>
+                <option value="6">Hurghada </option>
+                <option value="7">Dahab </option>
+                <option value="8">Sohag </option>
               </select>
             </div>
             <div className="select-dropdown-section">
@@ -49,12 +54,12 @@ function TourFilters() {
               </div>
               <select className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-2">
                 <option value="">Select an tour type</option>
-                <option value="1">Booking Type</option>
-                <option value="2">Advance Type</option>
-                <option value="3">Pre-book Type</option>
+                <option value="1">Full Day </option>
+                <option value="2">Half Day</option>
+                <option value="3">Other</option>
               </select>
             </div>
-            <div className="dropdown-section">
+            {/* <div className="dropdown-section">
               <div className="d-flex gap-10 align-items-center">
                 <i className="dropdown-icon ri-time-line"></i>
                 <div className="custom-dropdown custom-date">
@@ -65,7 +70,7 @@ function TourFilters() {
                 </div>
               </div>
               <div className="date-result">01/12/2025</div>
-            </div>
+            </div> */}
             
           </div>
         </div>

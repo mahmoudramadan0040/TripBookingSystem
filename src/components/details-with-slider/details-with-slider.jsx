@@ -1,25 +1,45 @@
 "use client";
 
+import { useDispatch, useSelector } from "react-redux";
 import DetailsSlider from "../DetailsSlider";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { clearCart, setToCart } from "@/app/Redux/slices/SharedSlice";
 
-export default function DetailsWithSlider() {
-  const [tourPackageDetails, setTourPackageDetails] = useState(null);
-
+export default function DetailsWithSlider({ tour }) {
+  //   --------------------- Add To Cart ---------------------
+  const dispatch = useDispatch();
+  const cartData = useSelector((state) => state.shared.cart);
+  console.log(cartData);
+  const isInCart = cartData.some((item) => item.id === tour.id);
   useEffect(() => {
-    fetch("/assets/fullDayTours.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setTourPackageDetails(data["fullDayTours"][0]);
-        console.log("Fetched data:", data["fullDayTours"][0]);
-      })
-      .catch((error) => {
-        console.error("Failed to load JSON:", error);
-      });
+    
+    if (isInCart) {
+      const tourInCart = cartData.find((item) => item.id === tour.id);
+      console.log(tourInCart);
+      setSelectedDate(tourInCart.tourDate)
+      setGuestCount(tourInCart.persons)
+      
+    }
   }, []);
   function addToCart() {
-    console.log(tourPackageDetails);
+    const updatedTour = {
+      ...tour,
+      tourDate: selectedDate,
+      persons: guestCount,
+    };
+    dispatch(setToCart(updatedTour));
+    // dispatch(clearCart());
   }
+  function checkInCart() {
+    const id = tour.id;
+
+    const cart = cartData;
+
+    const exist = cart.some((item) => item.id === id);
+
+    return exist;
+  }
+
   //   --------------------- Select Date ---------------------
   const today = new Date();
 
@@ -43,6 +63,43 @@ export default function DetailsWithSlider() {
       window.removeEventListener("daterangeChanged", handleDateChange);
     };
   }, []);
+  //   --------------------- Select Guest Count ---------------------
+  const [isOpen, setIsOpen] = useState(false);
+  const [guestCount, setGuestCount] = useState(1);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  //   const toggleDropdown = (e) => {
+  //     e.stopPropagation();
+  //     setIsOpen((prev) => !prev);
+  //   };
+
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
+  const closeDropdown = (e) => {
+    e.stopPropagation();
+    setIsOpen(false);
+  };
+
+  const increaseGuest = () => {
+    setGuestCount((prev) => prev + 1);
+  };
+
+  const decreaseGuest = () => {
+    setGuestCount((prev) => (prev > 1 ? prev - 1 : 1));
+  };
 
   return (
     <div>
@@ -83,22 +140,20 @@ export default function DetailsWithSlider() {
         {/* Destination area S t a r t  */}
         <section className="tour-details-section section-padding2">
           <div className="tour-details-area">
-            <DetailsSlider />
+            <DetailsSlider images={tour?.images} />
             <div className="tour-details-container">
               <div className="container">
                 {/* Details Heading  */}
                 <div className="details-heading">
                   <div className="d-flex flex-column">
                     <h4 className="title text-capitalize">
-                      {tourPackageDetails ? tourPackageDetails.title : ""}
+                      {tour ? tour.title : ""}
                     </h4>
                     <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
                       <div className="location">
                         <i className="ri-map-pin-line"></i>
                         <div className="name">
-                          {tourPackageDetails
-                            ? `${tourPackageDetails.location.country}`
-                            : ""}
+                          Egypt, {tour?.Governorate || ""}
                         </div>
                       </div>
                       <div className="divider"></div>
@@ -106,9 +161,7 @@ export default function DetailsWithSlider() {
                         <div className="count">
                           <i className="ri-time-line"></i>
                           <p className="pera">
-                            {tourPackageDetails
-                              ? tourPackageDetails.tourDuration
-                              : ""}
+                            {tour ? tour.tourDuration : ""}
                           </p>
                         </div>
                         {/* <div className="count">
@@ -121,7 +174,7 @@ export default function DetailsWithSlider() {
                   <div className="price-review">
                     <div className="d-flex gap-10 align-items-end">
                       <p className="light-pera">From</p>
-                      <p className="pera">${tourPackageDetails?.price || 0}</p>
+                      <p className="pera">${tour?.price || 0}</p>
                     </div>
                     <div className="rating">
                       <i className="ri-star-s-fill"></i>
@@ -138,9 +191,7 @@ export default function DetailsWithSlider() {
                       {/* About tour  */}
                       <div className="tour-details-content">
                         <h4 className="title">About</h4>
-                        <p className="pera">
-                          {tourPackageDetails ? tourPackageDetails.summary : ""}
-                        </p>
+                        <p className="pera">{tour ? tour?.Description : ""}</p>
                       </div>
                       {/* / About tour  */}
 
@@ -149,16 +200,14 @@ export default function DetailsWithSlider() {
                         <div className="includ-exclude-point">
                           <h4 className="title">Included</h4>
                           <ul className="expect-list">
-                            {tourPackageDetails
-                              ? tourPackageDetails.included.map(
-                                  (item, index) => {
-                                    return (
-                                      <li key={index} className="list">
-                                        {item}
-                                      </li>
-                                    );
-                                  }
-                                )
+                            {tour
+                              ? tour?.included?.map((item, index) => {
+                                  return (
+                                    <li key={index} className="list">
+                                      {item}
+                                    </li>
+                                  );
+                                })
                               : ""}
                           </ul>
                         </div>
@@ -166,16 +215,14 @@ export default function DetailsWithSlider() {
                         <div className="includ-exclude-point">
                           <h4 className="title">Exclude</h4>
                           <ul className="expect-list">
-                            {tourPackageDetails
-                              ? tourPackageDetails.excluded.map(
-                                  (item, index) => {
-                                    return (
-                                      <li key={index} className="list">
-                                        {item}
-                                      </li>
-                                    );
-                                  }
-                                )
+                            {tour
+                              ? tour?.excluded?.map((item, index) => {
+                                  return (
+                                    <li key={index} className="list">
+                                      {item}
+                                    </li>
+                                  );
+                                })
                               : ""}
                           </ul>
                         </div>
@@ -203,9 +250,7 @@ export default function DetailsWithSlider() {
                                   aria-expanded="true"
                                   aria-controls="panelsStayOpen-collapseOne"
                                 >
-                                  {tourPackageDetails
-                                    ? tourPackageDetails.title
-                                    : ""}
+                                  {tour ? tour.title : ""}
                                 </button>
                               </h2>
                               <div
@@ -215,22 +260,18 @@ export default function DetailsWithSlider() {
                               >
                                 <div className="accordion-body">
                                   <p className="pera mb-16">
-                                    {tourPackageDetails
-                                      ? tourPackageDetails.fullDescription
-                                      : ""}
+                                    {tour ? tour?.FullDescription : ""}
                                   </p>
 
                                   <ul className="listing">
-                                    {tourPackageDetails
-                                      ? tourPackageDetails.highlights.map(
-                                          (item, index) => {
-                                            return (
-                                              <li className="list" key={index}>
-                                                {item}
-                                              </li>
-                                            );
-                                          }
-                                        )
+                                    {tour
+                                      ? tour?.highlights?.map((item, index) => {
+                                          return (
+                                            <li className="list" key={index}>
+                                              {item}
+                                            </li>
+                                          );
+                                        })
                                       : ""}
                                   </ul>
                                 </div>
@@ -240,7 +281,7 @@ export default function DetailsWithSlider() {
                         </div>
                       </div>
                       {/* / Tour Plan accordion */}
-              
+
                       {/* Tour Privacy Policy  */}
                       <div className="tour-details-content">
                         <h4 className="title">Policy</h4>
@@ -299,7 +340,7 @@ export default function DetailsWithSlider() {
                           <div className="d-flex gap-10 align-items-end">
                             <p className="light-pera">From</p>
                             <p className="pera">
-                              ${tourPackageDetails?.price || 0}
+                              ${tour?.price * guestCount || 0}
                             </p>
                           </div>
                           <div className="rating">
@@ -312,18 +353,87 @@ export default function DetailsWithSlider() {
                         </h4>
                         <div className="date-time-dropdown-single">
                           <i className="ri-time-line"></i>
-                          <p className="date-time-result">
-                            Wednesdsay, Jan 17, 2025
-                          </p>
+                          <p className="date-time-result">{selectedDate}</p>
                         </div>
                         {/* End Date Select */}
+                        {/* # Persons Select */}
+                        <div
+                          className="dropdown-section position-relative user-picker-dropdown"
+                          ref={wrapperRef}
+                          onClick={() => setIsOpen(!isOpen)}
+                          // onClick={toggleDropdown}
+                        >
+                          <div className="d-flex gap-12 align-items-center">
+                            <i className="dropdown-icon ri-user-line"></i>
+                            <div className="custom-dropdown">
+                              <h4 className="title">Guests</h4>
+                              <div className="arrow">
+                                <i className="ri-arrow-down-s-line"></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="user-result px-6">
+                            {guestCount > 0 && (
+                              <span>{guestCount} person(s)</span>
+                            )}
+                          </div>
+
+                          {isOpen && (
+                            <div
+                              className={`user-picker dropdown-shadow ${
+                                isOpen ? "show" : ""
+                              }`}
+                              onClick={stopPropagation}
+                            >
+                              <div className="user-category">
+                                <div className="category-name">
+                                  <h4 className="title">Persons</h4>
+                                </div>
+                                <div className="qty-container">
+                                  <button
+                                    className="qty-btn-minus mr-1"
+                                    type="button"
+                                    onClick={decreaseGuest}
+                                  >
+                                    <i className="ri-subtract-fill"></i>
+                                  </button>
+                                  <input
+                                    type="text"
+                                    name="qty"
+                                    value={guestCount}
+                                    readOnly
+                                    className="input-qty input-rounded text-center"
+                                  />
+                                  <button
+                                    className="qty-btn-plus ml-1"
+                                    type="button"
+                                    onClick={increaseGuest}
+                                  >
+                                    <i className="ri-add-fill"></i>
+                                  </button>
+                                </div>
+                              </div>
+
+                              <div className="btn-section">
+                                <button
+                                  className="done-btn no-border"
+                                  onClick={closeDropdown}
+                                >
+                                  Done
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        {/* End # Persons Select */}
                         <div className="mt-30">
                           <button
                             type="submit"
                             className="send-btn w-100"
                             onClick={addToCart}
                           >
-                            Add To Cart
+                            {isInCart ? "Edit In" : "Add To"} Cart
                             <i className="ri-shopping-cart-line mx-5"></i>
                           </button>
                         </div>

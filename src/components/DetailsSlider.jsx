@@ -1,48 +1,20 @@
 "use client";
 
-export default function DetailsSlider() {
+export default function DetailsSlider({ images }) {
   return (
     <>
       {/* Details Banner Slider  */}
       <div className="tour-details-banner">
         <div className="swiper tourSwiper-active">
           <div className="swiper-wrapper">
-            <div className="swiper-slide">
-              <img
-                src="/assets/images/gallery/tour-details-banner-three.png"
-                alt="travello"
-              />
-            </div>
-            <div className="swiper-slide">
-              <img
-                src="/assets/images/gallery/tour-details-banner.png"
-                alt="travello"
-              />
-            </div>
-            <div className="swiper-slide">
-              <img
-                src="/assets/images/gallery/tour-details-banner-two.png"
-                alt="travello"
-              />
-            </div>
-            <div className="swiper-slide">
-              <img
-                src="/assets/images/gallery/tour-details-banner-three.png"
-                alt="travello"
-              />
-            </div>
-            <div className="swiper-slide">
-              <img
-                src="/assets/images/gallery/tour-details-banner.png"
-                alt="travello"
-              />
-            </div>
-            <div className="swiper-slide">
-              <img
-                src="/assets/images/gallery/tour-details-banner-two.png"
-                alt="travello"
-              />
-            </div>
+            {images?.map((img, index) => {
+              
+              return (
+                <div className="swiper-slide " key={index}>
+                  <img src={img?.cloudImage} alt="travello" className="!max-h-115 "/>
+                </div>
+              );
+            })}
           </div>
           <div className="swiper-button-next">
             <i className="ri-arrow-right-s-line"></i>

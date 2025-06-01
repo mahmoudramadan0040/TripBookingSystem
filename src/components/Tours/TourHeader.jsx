@@ -95,7 +95,7 @@ function TourHeader() {
                             <ul className="listing" id="navigation">
                               <li className="single-list">
                                 <Link
-                                  href="home"
+                                  href="/home"
                                   className="single link-active"
                                 >
                                   Home 

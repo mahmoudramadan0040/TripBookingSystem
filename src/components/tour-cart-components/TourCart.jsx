@@ -2,131 +2,133 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function TourCart() {
-  const [cartItems, setCartItems] = useState([
-    {
-      price: 30,
-      title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
-      summary:
-        "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
-      tourDuration: "Up to 8 hours",
-      activityDetails: {
-        reserveNowPayLater: true,
-        duration: "4 hours",
-        skipTheTicketLine: true,
-        liveTourGuide: true,
-        pickupIncluded: "Please wait 10 minutes before your scheduled time.",
-        privateGroup: true,
-      },
-      Governorate: "Giza",
-      highlights: [
-        "Explore the history and culture of Ancient Egypt",
-        "Wander through 120,000 masterpieces of art at the Egyptian Museum",
-        "See the treasures from the Tomb of Tutankhamen",
-        "Visit the Pyramids of Giza and Great Sphinx",
-        "Pick up some souvenir bargains and learn to haggle at the Khan El Khalili Bazaar",
-      ],
-      fullDescription:
-        "Starts with Pickup from your hotel in either Cairo or Giza by tour guide to start your full day tour visiting Giza Pyramids where you visit the Great Pyramids - Cheops, Chephren & Mykerinos then Visit the Valley Temple where the Priests Mummified the dead body of King Chephren. Also there you will have a close-up look at The Sphinx. Then continue your day tour to the Egyptian Museum of antiquities. It exhibits over 250,000 genuine artifacts including treasures of Tutankhamon. Then visit the Khan El Khalili Bazaar known for trading fine brassware, copper, perfumes, leather, silver, gold, antiques and much more.",
-      included: [
-        "Hotel pickup and drop-off",
-        "Transportation by air-conditioned vehicle",
-        "Entry ticket",
-        "Egyptologist tour guide",
-        "Shopping at Papyrus Gallery and Essential Oils Factory",
-        "Bottle of water",
-      ],
-      images: [
-        {
-          id: "e3c0fb0d-d4a3-4733-ab11-e8bdf9c6d64f",
-          localImage: null,
-          cloudImage:
-            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636634/uploads/1748636633766-product-03.png.png",
-          publicId: "uploads/1748636633766-product-03.png",
-          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
-          createdAt: "2025-05-30T20:23:58.478Z",
-          updatedAt: "2025-05-30T20:23:58.478Z",
-        },
-        {
-          id: "a3afdcc8-a511-4030-bb40-f82c9f760749",
-          localImage: null,
-          cloudImage:
-            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636637/uploads/1748636633754-package-7.jpg.jpg",
-          publicId: "uploads/1748636633754-package-7.jpg",
-          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
-          createdAt: "2025-05-30T20:23:58.478Z",
-          updatedAt: "2025-05-30T20:23:58.478Z",
-        },
-      ],
-      locations: ["Giza pyramids", "Egyptian museum", "Khan el Khalili Bazaar"],
-      excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
-      tourDate: "Thursday, Jun 5, 2025",
-      persons: 3,
-    },
-    {
-      price: 60,
-      title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
-      summary:
-        "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
-      tourDuration: "Up to 8 hours",
-      activityDetails: {
-        reserveNowPayLater: true,
-        duration: "4 hours",
-        skipTheTicketLine: true,
-        liveTourGuide: true,
-        pickupIncluded: "Please wait 10 minutes before your scheduled time.",
-        privateGroup: true,
-      },
-      location: {
-        country: "Egypt",
-        city: "Giza",
-      },
-      highlights: [
-        "Explore the history and culture of Ancient Egypt",
-        "Wander through 120,000 masterpieces of art at the Egyptian Museum",
-        "See the treasures from the Tomb of Tutankhamen",
-        "Visit the Pyramids of Giza and Great Sphinx",
-        "Pick up some souvenir bargains and learn to haggle at the Khan El Khalili Bazaar",
-      ],
-      fullDescription:
-        "Starts with Pickup from your hotel in either Cairo or Giza by tour guide to start your full day tour visiting Giza Pyramids where you visit the Great Pyramids - Cheops, Chephren & Mykerinos then Visit the Valley Temple where the Priests Mummified the dead body of King Chephren. Also there you will have a close-up look at The Sphinx. Then continue your day tour to the Egyptian Museum of antiquities. It exhibits over 250,000 genuine artifacts including treasures of Tutankhamon. Then visit the Khan El Khalili Bazaar known for trading fine brassware, copper, perfumes, leather, silver, gold, antiques and much more.",
-      included: [
-        "Hotel pickup and drop-off",
-        "Transportation by air-conditioned vehicle",
-        "Entry ticket",
-        "Egyptologist tour guide",
-        "Shopping at Papyrus Gallery and Essential Oils Factory",
-        "Bottle of water",
-      ],
-      images: [
-        {
-          id: "e3c0fb0d-d4a3-4733-ab11-e8bdf9c6d64f",
-          localImage: null,
-          cloudImage:
-            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636634/uploads/1748636633766-product-03.png.png",
-          publicId: "uploads/1748636633766-product-03.png",
-          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
-          createdAt: "2025-05-30T20:23:58.478Z",
-          updatedAt: "2025-05-30T20:23:58.478Z",
-        },
-        {
-          id: "a3afdcc8-a511-4030-bb40-f82c9f760749",
-          localImage: null,
-          cloudImage:
-            "https://res.cloudinary.com/dibg7krep/image/upload/v1748636637/uploads/1748636633754-package-7.jpg.jpg",
-          publicId: "uploads/1748636633754-package-7.jpg",
-          TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
-          createdAt: "2025-05-30T20:23:58.478Z",
-          updatedAt: "2025-05-30T20:23:58.478Z",
-        },
-      ],
-      locations: ["Giza pyramids", "Sphinx"],
-      excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
-      tourDate: "Thursday, Jun 5, 2025",
-      persons: 3,
-    },
-  ]);
+  // const [cartItems, setCartItems] = useState([
+  //   {
+  //     price: 30,
+  //     title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
+  //     summary:
+  //       "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
+  //     tourDuration: "Up to 8 hours",
+  //     activityDetails: {
+  //       reserveNowPayLater: true,
+  //       duration: "4 hours",
+  //       skipTheTicketLine: true,
+  //       liveTourGuide: true,
+  //       pickupIncluded: "Please wait 10 minutes before your scheduled time.",
+  //       privateGroup: true,
+  //     },
+  //     Governorate: "Giza",
+  //     highlights: [
+  //       "Explore the history and culture of Ancient Egypt",
+  //       "Wander through 120,000 masterpieces of art at the Egyptian Museum",
+  //       "See the treasures from the Tomb of Tutankhamen",
+  //       "Visit the Pyramids of Giza and Great Sphinx",
+  //       "Pick up some souvenir bargains and learn to haggle at the Khan El Khalili Bazaar",
+  //     ],
+  //     fullDescription:
+  //       "Starts with Pickup from your hotel in either Cairo or Giza by tour guide to start your full day tour visiting Giza Pyramids where you visit the Great Pyramids - Cheops, Chephren & Mykerinos then Visit the Valley Temple where the Priests Mummified the dead body of King Chephren. Also there you will have a close-up look at The Sphinx. Then continue your day tour to the Egyptian Museum of antiquities. It exhibits over 250,000 genuine artifacts including treasures of Tutankhamon. Then visit the Khan El Khalili Bazaar known for trading fine brassware, copper, perfumes, leather, silver, gold, antiques and much more.",
+  //     included: [
+  //       "Hotel pickup and drop-off",
+  //       "Transportation by air-conditioned vehicle",
+  //       "Entry ticket",
+  //       "Egyptologist tour guide",
+  //       "Shopping at Papyrus Gallery and Essential Oils Factory",
+  //       "Bottle of water",
+  //     ],
+  //     images: [
+  //       {
+  //         id: "e3c0fb0d-d4a3-4733-ab11-e8bdf9c6d64f",
+  //         localImage: null,
+  //         cloudImage:
+  //           "https://res.cloudinary.com/dibg7krep/image/upload/v1748636634/uploads/1748636633766-product-03.png.png",
+  //         publicId: "uploads/1748636633766-product-03.png",
+  //         TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+  //         createdAt: "2025-05-30T20:23:58.478Z",
+  //         updatedAt: "2025-05-30T20:23:58.478Z",
+  //       },
+  //       {
+  //         id: "a3afdcc8-a511-4030-bb40-f82c9f760749",
+  //         localImage: null,
+  //         cloudImage:
+  //           "https://res.cloudinary.com/dibg7krep/image/upload/v1748636637/uploads/1748636633754-package-7.jpg.jpg",
+  //         publicId: "uploads/1748636633754-package-7.jpg",
+  //         TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+  //         createdAt: "2025-05-30T20:23:58.478Z",
+  //         updatedAt: "2025-05-30T20:23:58.478Z",
+  //       },
+  //     ],
+  //     locations: ["Giza pyramids", "Egyptian museum", "Khan el Khalili Bazaar"],
+  //     excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
+  //     tourDate: "Thursday, Jun 5, 2025",
+  //     persons: 3,
+  //   },
+  //   {
+  //     price: 60,
+  //     title: "Giza pyramids, Egyptian museum and Khan el Khalili Bazaar",
+  //     summary:
+  //       "Explore the history and culture of Egypt at Great Pyramids of Giza and Sphinx, Egyptian museum for antiques. Hunt for unique bargains in the historic Khan El Khalili Bazaar.",
+  //     tourDuration: "Up to 8 hours",
+  //     activityDetails: {
+  //       reserveNowPayLater: true,
+  //       duration: "4 hours",
+  //       skipTheTicketLine: true,
+  //       liveTourGuide: true,
+  //       pickupIncluded: "Please wait 10 minutes before your scheduled time.",
+  //       privateGroup: true,
+  //     },
+  //     location: {
+  //       country: "Egypt",
+  //       city: "Giza",
+  //     },
+  //     highlights: [
+  //       "Explore the history and culture of Ancient Egypt",
+  //       "Wander through 120,000 masterpieces of art at the Egyptian Museum",
+  //       "See the treasures from the Tomb of Tutankhamen",
+  //       "Visit the Pyramids of Giza and Great Sphinx",
+  //       "Pick up some souvenir bargains and learn to haggle at the Khan El Khalili Bazaar",
+  //     ],
+  //     fullDescription:
+  //       "Starts with Pickup from your hotel in either Cairo or Giza by tour guide to start your full day tour visiting Giza Pyramids where you visit the Great Pyramids - Cheops, Chephren & Mykerinos then Visit the Valley Temple where the Priests Mummified the dead body of King Chephren. Also there you will have a close-up look at The Sphinx. Then continue your day tour to the Egyptian Museum of antiquities. It exhibits over 250,000 genuine artifacts including treasures of Tutankhamon. Then visit the Khan El Khalili Bazaar known for trading fine brassware, copper, perfumes, leather, silver, gold, antiques and much more.",
+  //     included: [
+  //       "Hotel pickup and drop-off",
+  //       "Transportation by air-conditioned vehicle",
+  //       "Entry ticket",
+  //       "Egyptologist tour guide",
+  //       "Shopping at Papyrus Gallery and Essential Oils Factory",
+  //       "Bottle of water",
+  //     ],
+  //     images: [
+  //       {
+  //         id: "e3c0fb0d-d4a3-4733-ab11-e8bdf9c6d64f",
+  //         localImage: null,
+  //         cloudImage:
+  //           "https://res.cloudinary.com/dibg7krep/image/upload/v1748636634/uploads/1748636633766-product-03.png.png",
+  //         publicId: "uploads/1748636633766-product-03.png",
+  //         TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+  //         createdAt: "2025-05-30T20:23:58.478Z",
+  //         updatedAt: "2025-05-30T20:23:58.478Z",
+  //       },
+  //       {
+  //         id: "a3afdcc8-a511-4030-bb40-f82c9f760749",
+  //         localImage: null,
+  //         cloudImage:
+  //           "https://res.cloudinary.com/dibg7krep/image/upload/v1748636637/uploads/1748636633754-package-7.jpg.jpg",
+  //         publicId: "uploads/1748636633754-package-7.jpg",
+  //         TourId: "e4528791-d99e-42d5-844d-d0f259fae7be",
+  //         createdAt: "2025-05-30T20:23:58.478Z",
+  //         updatedAt: "2025-05-30T20:23:58.478Z",
+  //       },
+  //     ],
+  //     locations: ["Giza pyramids", "Sphinx"],
+  //     excluded: ["Entry ticket to go inside any Pyramid", "Lunch", "Tips"],
+  //     tourDate: "Thursday, Jun 5, 2025",
+  //     persons: 3,
+  //   },
+  // ]);
+  const cartItems = useSelector((state) => state.shared.cart);
 
   //   --------------------- Select Date ---------------------
   const today = new Date();
@@ -153,8 +155,10 @@ export default function TourCart() {
   }, []);
 
   //   --------------------- Cart Items ---------------------
+  const dispatch = useDispatch();
+
   const handleRemoveItem = (index) => {
-    setCartItems((prev) => prev.filter((_, i) => i !== index));
+    dispatch(removeFromCart(index));
   };
 
   //   --------------------- Select Guest Count ---------------------
@@ -219,7 +223,6 @@ export default function TourCart() {
     console.log(`Terms Check: ${agreeTerms}`);
     console.log(cartItems);
     console.log(totalPrice);
-    console.log(selectedDate);
   }
   return (
     <>
@@ -273,6 +276,7 @@ export default function TourCart() {
                             <th className="text-title font-600">Date</th>
                             <th className="text-title font-600">Persons</th>
                             <th className="text-title font-600">Price</th>
+                            <th className="text-title font-600">Edit</th>
                             <th className="text-title font-600 pr-3">Remove</th>
                           </tr>
                         </thead>
@@ -302,6 +306,14 @@ export default function TourCart() {
                                 </td>
                                 <td className="font-600 text-center">
                                   ${item.price}
+                                </td>
+                                <td className="text-center">
+                                  <Link
+                                  href={`/tours/${item?.id}`}
+                                    className="border-0  bg-transparent badge-basic-danger-text text-18"
+                                  >
+                                    <i className="ri-pencil-line "></i>
+                                  </Link>
                                 </td>
                                 <td className="text-center">
                                   <button

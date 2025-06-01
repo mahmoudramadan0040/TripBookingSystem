@@ -1,22 +1,39 @@
 "use client";
 
+import { useDispatch, useSelector } from "react-redux";
 import DetailsSlider from "../DetailsSlider";
 import { useEffect, useRef, useState } from "react";
+import { clearCart, setToCart } from "@/app/Redux/slices/SharedSlice";
 
 export default function DetailsWithSlider({ tour }) {
-  const [tourPackageDetails, setTourPackageDetails] = useState(null);
 
-  useEffect(() => {
-    console.log(tour);
-    
-    setTourPackageDetails(tour);
-  }, []);
+
+
+  //   --------------------- Add To Cart ---------------------
+  const dispatch = useDispatch();
+  const cartData = useSelector((state) => state.shared.cart);
+  console.log(cartData);  
+  const isInCart = cartData.some((item) => item.id === tour.id);
+
   function addToCart() {
-    tourPackageDetails.tourDate = selectedDate;
-    tourPackageDetails.persons = guestCount;
-
-    console.log(tourPackageDetails);
+    const updatedTour = {
+      ...tour,
+      tourDate: selectedDate,
+      persons: guestCount,
+    };
+    dispatch(setToCart(updatedTour));
+    // dispatch(clearCart());
   }
+  function checkInCart() {
+    const id = tour.id;
+
+    const cart = cartData;
+
+    const exist = cart.some((item) => item.id === id);
+
+    return exist;
+  }
+
   //   --------------------- Select Date ---------------------
   const today = new Date();
 
@@ -117,20 +134,20 @@ export default function DetailsWithSlider({ tour }) {
         {/* Destination area S t a r t  */}
         <section className="tour-details-section section-padding2">
           <div className="tour-details-area">
-            <DetailsSlider />
+            <DetailsSlider images={tour?.images} />
             <div className="tour-details-container">
               <div className="container">
                 {/* Details Heading  */}
                 <div className="details-heading">
                   <div className="d-flex flex-column">
                     <h4 className="title text-capitalize">
-                      {tourPackageDetails ? tourPackageDetails.title : ""}
+                      {tour ? tour.title : ""}
                     </h4>
                     <div className="d-flex flex-wrap align-items-center gap-30 mt-16">
                       <div className="location">
                         <i className="ri-map-pin-line"></i>
                         <div className="name">
-                          Egypt, {tourPackageDetails?.Governorate || ""}
+                          Egypt, {tour?.Governorate || ""}
                         </div>
                       </div>
                       <div className="divider"></div>
@@ -138,8 +155,8 @@ export default function DetailsWithSlider({ tour }) {
                         <div className="count">
                           <i className="ri-time-line"></i>
                           <p className="pera">
-                            {tourPackageDetails
-                              ? tourPackageDetails.tourDuration
+                            {tour
+                              ? tour.tourDuration
                               : ""}
                           </p>
                         </div>
@@ -153,7 +170,7 @@ export default function DetailsWithSlider({ tour }) {
                   <div className="price-review">
                     <div className="d-flex gap-10 align-items-end">
                       <p className="light-pera">From</p>
-                      <p className="pera">${tourPackageDetails?.price || 0}</p>
+                      <p className="pera">${tour?.price || 0}</p>
                     </div>
                     <div className="rating">
                       <i className="ri-star-s-fill"></i>
@@ -171,7 +188,9 @@ export default function DetailsWithSlider({ tour }) {
                       <div className="tour-details-content">
                         <h4 className="title">About</h4>
                         <p className="pera">
-                          {tourPackageDetails ? tourPackageDetails.summary : ""}
+                          {tour
+                            ? tour?.Description
+                            : ""}
                         </p>
                       </div>
                       {/* / About tour  */}
@@ -181,8 +200,8 @@ export default function DetailsWithSlider({ tour }) {
                         <div className="includ-exclude-point">
                           <h4 className="title">Included</h4>
                           <ul className="expect-list">
-                            {tourPackageDetails
-                              ? tourPackageDetails.included.map(
+                            {tour
+                              ? tour?.included?.map(
                                   (item, index) => {
                                     return (
                                       <li key={index} className="list">
@@ -198,8 +217,8 @@ export default function DetailsWithSlider({ tour }) {
                         <div className="includ-exclude-point">
                           <h4 className="title">Exclude</h4>
                           <ul className="expect-list">
-                            {tourPackageDetails
-                              ? tourPackageDetails.excluded.map(
+                            {tour
+                              ? tour?.excluded?.map(
                                   (item, index) => {
                                     return (
                                       <li key={index} className="list">
@@ -235,8 +254,8 @@ export default function DetailsWithSlider({ tour }) {
                                   aria-expanded="true"
                                   aria-controls="panelsStayOpen-collapseOne"
                                 >
-                                  {tourPackageDetails
-                                    ? tourPackageDetails.title
+                                  {tour
+                                    ? tour.title
                                     : ""}
                                 </button>
                               </h2>
@@ -247,14 +266,14 @@ export default function DetailsWithSlider({ tour }) {
                               >
                                 <div className="accordion-body">
                                   <p className="pera mb-16">
-                                    {tourPackageDetails
-                                      ? tourPackageDetails.fullDescription
+                                    {tour
+                                      ? tour?.FullDescription
                                       : ""}
                                   </p>
 
                                   <ul className="listing">
-                                    {tourPackageDetails
-                                      ? tourPackageDetails.highlights.map(
+                                    {tour
+                                      ? tour?.highlights?.map(
                                           (item, index) => {
                                             return (
                                               <li className="list" key={index}>
@@ -331,7 +350,7 @@ export default function DetailsWithSlider({ tour }) {
                           <div className="d-flex gap-10 align-items-end">
                             <p className="light-pera">From</p>
                             <p className="pera">
-                              ${tourPackageDetails?.price * guestCount || 0}
+                              ${tour?.price * guestCount || 0}
                             </p>
                           </div>
                           <div className="rating">
@@ -344,9 +363,7 @@ export default function DetailsWithSlider({ tour }) {
                         </h4>
                         <div className="date-time-dropdown-single">
                           <i className="ri-time-line"></i>
-                          <p className="date-time-result">
-                            Wednesdsay, Jan 17, 2025
-                          </p>
+                          <p className="date-time-result">{formattedDate}</p>
                         </div>
                         {/* End Date Select */}
                         {/* # Persons Select */}
@@ -426,7 +443,7 @@ export default function DetailsWithSlider({ tour }) {
                             className="send-btn w-100"
                             onClick={addToCart}
                           >
-                            Add To Cart
+                            {isInCart ? "Edit In" : "Add To"} Cart
                             <i className="ri-shopping-cart-line mx-5"></i>
                           </button>
                         </div>

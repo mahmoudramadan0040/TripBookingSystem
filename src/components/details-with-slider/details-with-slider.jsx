@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DetailsSlider from "../DetailsSlider";
 import { useEffect, useRef, useState } from "react";
 import { clearCart, setToCart } from "@/app/Redux/slices/SharedSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function DetailsWithSlider({ tour }) {
   //   --------------------- Add To Cart ---------------------
@@ -12,13 +13,11 @@ export default function DetailsWithSlider({ tour }) {
   console.log(cartData);
   const isInCart = cartData?.some((item) => item.id === tour.id);
   useEffect(() => {
-    
     if (isInCart) {
       const tourInCart = cartData.find((item) => item.id === tour.id);
       console.log(tourInCart);
-      setSelectedDate(tourInCart.tourDate)
-      setGuestCount(tourInCart.persons)
-      
+      setSelectedDate(tourInCart.tourDate);
+      setGuestCount(tourInCart.persons);
     }
   }, []);
   function addToCart() {
@@ -28,7 +27,9 @@ export default function DetailsWithSlider({ tour }) {
       persons: guestCount,
     };
     dispatch(setToCart(updatedTour));
-    // dispatch(clearCart());
+    toast.success(
+      isInCart ? "🛒 Item updated in your cart!" : "✅ Item added to your cart!"
+    );
   }
   function checkInCart() {
     const id = tour.id;
@@ -103,6 +104,7 @@ export default function DetailsWithSlider({ tour }) {
 
   return (
     <div>
+      <Toaster />
       <main>
         {/* Breadcrumbs S t a r t  */}
         <section className="breadcrumbs-area breadcrumb-bg">

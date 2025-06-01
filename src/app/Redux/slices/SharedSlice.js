@@ -74,6 +74,7 @@ export const {
   setSelectedGovernorate,
   setSelectedTypeTour,
   setSelectedPrice,
+  removeFromCart
 } = sharedSlice.actions;
 export default sharedSlice.reducer;
 

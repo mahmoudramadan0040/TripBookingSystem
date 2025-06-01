@@ -28,7 +28,7 @@ function TourCardV2({ tour }) {
             <div className="name"> {locations ? locations.join(", ") : ""}</div>
           </div>
           <h4 className="area-name">
-            <Link href={`/tour/${id ? id : ""}`}>{title ? title : ""}</Link>
+            <Link href={`/tours/${id ? id : ""}`}>{title ? title : ""}</Link>
           </h4>
           <div className="packages-person mb-16">
             <div className="count">

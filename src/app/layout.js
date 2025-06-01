@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReduxProvider } from "./Redux/ReduxProvider";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor} from "./Redux/store"
+import FooterContentComponent from "@/components/Home/Content/FooterContentComponent";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -94,6 +95,7 @@ export default function RootLayout({ children }) {
         <ReduxProvider>
           <PersistGate loading={null} persistor={persistor}>
             {children}
+            <FooterContentComponent></FooterContentComponent>
           </PersistGate>
         </ReduxProvider>
         <Script

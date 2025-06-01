@@ -1,7 +1,67 @@
+"use client";
 import TourCard from "./TourCard";
+import Select from "react-select";
 import TourFilters from "./ToursFilters";
-
+import { useState } from "react";
+import { useSelector } from "react-redux";
 function TourList({ tours }) {
+  const data = useSelector((state) => state.shared.tours);
+  const [sortBy, setSortBy] = useState("popular");
+  const handleSortChange = (e) => {
+    console.log(e.target.value);
+    setSortBy(e.target.value);
+  };
+  // console.log(tours)
+  const sortedTours = tours?.data?.slice().sort((a, b) => {
+    switch (sortBy) {
+      case "low":
+        console.log("low");
+        return Number(a.price) - Number(b.price); // low to high
+      case "high":
+        console.log("high");
+        return Number(b.price) - Number(a.price); // high to low
+      case "new":
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        ); // newest first
+      case "popular":
+      default:
+        return 0; // no sort or original order
+    }
+  });
+
+  const options = [
+    { value: "popular", label: "Sort by Popular" },
+    { value: "low", label: "Price low to high" },
+    { value: "high", label: "Price high to low" },
+    { value: "new", label: "Sort by Newest" },
+  ];
+  const customStyles = {
+    // control: (provided, state) => ({
+    //   ...provided,
+    //   backgroundColor: '#fef3c7',      // yellow-100 background
+    //   borderColor: state.isFocused ? '#fbbf24' : '#fbbf24', // yellow-400 border on focus and normal
+    //   boxShadow: state.isFocused ? '0 0 0 2px #fbbf24' : null, // yellow ring on focus
+    //   '&:hover': {
+    //     borderColor: '#fbbf24', // yellow border on hover
+    //   },
+    //   color: '#92400e', // dark yellow text
+    // }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: '#fef3c7', // yellow background in dropdown menu
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? '#fde68a' : '#fef3c7', // brighter yellow on hover
+      color: '#92400e',
+      cursor: 'pointer',
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: '#92400e', // dark yellow selected text
+    }),
+  };
   return (
     <>
       {/* <!-- Breadcrumbs S t a r t --> */}
@@ -41,7 +101,9 @@ function TourList({ tours }) {
             <TourFilters></TourFilters>
             <div className="col-xl-9">
               <div className="showing-result">
-                <h4 className="title">Showing 6 of 10 Results</h4>
+                <h4 className="title">
+                  Showing {data.count} of {data.count} Results
+                </h4>
                 <div className="d-flex gap-10 align-items-center">
                   <div
                     className="expand-icon hamburger block d-xl-none"
@@ -64,23 +126,23 @@ function TourList({ tours }) {
                     </svg>
                   </div>
                   <div className="sorting-dropdown">
-                    <select className="select2">
-                      <option value="popular"> Sort by Popular</option>
-                      <option value="low">Price low to high</option>
-                      <option value="high">Price high to low</option>
-                      <option value="new">Sort by Newset</option>
-                    </select>
+                    <Select className="bg-yellow-100 border-yellow-300 rounded p-1 m-1 focus:ring-yellow-500 
+             focus:border-yellow-500 focus:border focus:bg-yellow-100 focus:text-yellow-500"
+                      options={options}
+                      defaultValue={options[0]}
+                      onChange={(selected) => setSortBy(selected.value)}
+                      styles={customStyles}
+                    />
                   </div>
                 </div>
               </div>
               <br></br>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  gap-24  ">
                 {tours && tours.data
-                  ? tours.data.map((tour) => (
+                  ? sortedTours?.map((tour) => (
                       <TourCard tour={tour} key={tour.id}></TourCard>
                     ))
                   : ""}
-                
               </div>
             </div>
           </div>

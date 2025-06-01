@@ -10,6 +10,7 @@ import { useGetToursQuery } from "../Redux/slices/TourSlice";
 import { useDispatch } from "react-redux";
 import { setTours } from "../Redux/slices/SharedSlice";
 import { useEffect } from "react";
+import AboutUsComponent from "@/components/Home/Content/AboutUsComponent";
 function HomePage() {
   const { data: tours, isSuccess } = useGetToursQuery();
   console.log(tours);
@@ -26,7 +27,8 @@ function HomePage() {
       <SearchTransportComponent></SearchTransportComponent>
       <PopularPakageComponent></PopularPakageComponent>
       <FavoritPakageComponent></FavoritPakageComponent>
-      <FooterContentComponent></FooterContentComponent>
+      <AboutUsComponent></AboutUsComponent>
+      {/* <FooterContentComponent></FooterContentComponent> */}
     </Fragment>
   );
 }

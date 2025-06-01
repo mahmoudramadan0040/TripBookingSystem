@@ -23,7 +23,7 @@ function TourCard({ tour }) {
       </div>
       <div className="package-content">
         <h4 className="area-name">
-          <Link href={`/tour/${id ? id : ""}`}>{title ? title : ""}</Link>
+          <Link href={`/tours/${id ? id : ""}`}>{title ? title : ""}</Link>
         </h4>
         <div className="location">
           <i className="ri-map-pin-line"></i>

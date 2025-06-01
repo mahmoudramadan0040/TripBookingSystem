@@ -264,7 +264,7 @@ function TourHeader() {
                                 </div>
                               </div>
                               <a
-                                href="tour-cart-page.html"
+                                href="/cart"
                                 className="cart text-title text-20"
                               >
                                 <i className="ri-shopping-cart-line"></i>

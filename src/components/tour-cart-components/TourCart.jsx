@@ -52,7 +52,7 @@ export default function TourCart() {
   useEffect(() => {
     console.log(cartItems);
     let sumPrice = cartItems.reduce(
-      (sum, tour) => sum + (Number(tour.price) || 0),
+      (sum, tour) => sum + (Number(tour.price) * Number(tour.persons) || 0),
       0
     );
     setTotalPrice(sumPrice);

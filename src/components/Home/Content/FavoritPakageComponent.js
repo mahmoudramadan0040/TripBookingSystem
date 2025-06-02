@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
 import "swiper/css";
+import Link from "next/link";
 function FavoritPakageComponent() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -88,12 +89,12 @@ function FavoritPakageComponent() {
           <div className="row position-relative z-10">
             <div className="col-12 text-center">
               <div className="section-button d-inline-block">
-                <a href="tour-list.html">
+                <Link href="/tours">
                   <div className="btn-primary-icon-sm border-radius-20">
                     <p className="pera">View All Tour</p>
                     <i className="ri-arrow-right-up-line"></i>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

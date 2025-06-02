@@ -141,7 +141,7 @@ function PopularPakageComponent() {
                   >
                     <div className="row g-4 justify-center">
                       
-                      {Alex
+                      {Alex.length
                         ? Alex.map((tour) => (
                             <div
                               className="col-xl-3 col-lg-4 col-sm-6 "

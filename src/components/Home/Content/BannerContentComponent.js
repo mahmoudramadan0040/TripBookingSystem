@@ -7,12 +7,12 @@ function BannerContentComponent() {
         <div className="hero-bg-video">
           <video
             className="hero-slider-video video-cover"
-            poster="assets/images/hero/hero-three-banner.png"
+            poster="/assets/images/hero/hero-three-banner.png"
             loop
             autoPlay
             muted
           >
-            <source src="assets/images/videos/travel1.mp4" type="video/mp4" />
+            <source src="/assets/images/videos/travel1.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -35,23 +35,23 @@ function BannerContentComponent() {
               >
                 <div className="all-user">
                   <div className="happy-user">
-                    <img src="assets/images/hero/user-1.jpeg" alt="travello" />
+                    <img src="/assets/images/hero/user-1.jpeg" alt="travello" />
                   </div>
                   <div className="happy-user">
-                    <img src="assets/images/hero/user-2.png" alt="travello" />
+                    <img src="/assets/images/hero/user-2.png" alt="travello" />
                   </div>
                   <div className="happy-user">
-                    <img src="assets/images/hero/user-3.png" alt="travello" />
+                    <img src="/assets/images/hero/user-3.png" alt="travello" />
                   </div>
                   <div className="happy-user">
-                    <img src="assets/images/hero/user-4.jpeg" alt="travello" />
+                    <img src="/assets/images/hero/user-4.jpeg" alt="travello" />
                   </div>
                   <div className="happy-user-count">
                     <p className="user-count">5k+</p>
                   </div>
                   <p className="pera">Happy Customer</p>
                   <span className="wave-emoji">
-                    <img src="assets/images/icon/hand.png" alt="travello" />
+                    <img src="/assets/images/icon/hand.png" alt="travello" />
                   </span>
                 </div>
               </div>

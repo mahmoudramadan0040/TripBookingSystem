@@ -4,7 +4,7 @@ import {
   setSelectedTypeTour,
 } from "@/app/Redux/slices/SharedSlice";
 import { useDispatch } from "react-redux";
-
+import Link from "next/link";
 function TourFilters() {
   const dispatch = useDispatch();
   const handelChangeLocation = (e) => {
@@ -135,9 +135,9 @@ function TourFilters() {
                 <p className="pera">price: </p>{" "}
                 <input type="text" id="amount" readOnly />
                 <div className="button-section">
-                  <a onClick={handleApply} className="apply-btn">
+                  <button onClick={handleApply} className="apply-btn">
                     Apply
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

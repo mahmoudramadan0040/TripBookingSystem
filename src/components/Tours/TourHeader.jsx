@@ -26,7 +26,9 @@ function TourHeader() {
                         {/* <!-- search box --> */}
                         <div className="search-box search-bar d-none d-lg-block">
                           <div className="header-search">
-                            <span className="pera">Destination, attraction</span>
+                            <span className="pera">
+                              Destination, attraction
+                            </span>
                             <div className="search-icon">
                               <i className="ri-search-line"></i>
                             </div>
@@ -39,9 +41,12 @@ function TourHeader() {
                         <div className="search-header-position d-block d-lg-none">
                           <div className="d-flex gap-15">
                             <div className="search-bar">
-                              <a href="javascript:void(0)" className="rounded-btn">
+                              <Link
+                                href="javascript:void(0)"
+                                className="rounded-btn"
+                              >
                                 <i className="ri-search-line"></i>
-                              </a>
+                              </Link>
                             </div>
                             {/* <!-- Theme Mode --> */}
                             <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
@@ -61,7 +66,9 @@ function TourHeader() {
                           <div className="info">
                             <p className="pera">Email Anytime</p>
                             <h4 className="title">
-                              <a href="javascript:void(0)">example@gmail.com</a>
+                              <Link href="javascript:void(0)">
+                                example@gmail.com
+                              </Link>
                             </h4>
                           </div>
                         </div>
@@ -72,7 +79,9 @@ function TourHeader() {
                           <div className="info">
                             <p className="pera">Call Anytime</p>
                             <h4 className="title">
-                              <a href="javascript:void(0)">00 (888) +123456</a>
+                              <Link href="javascript:void(0)">
+                                00 (888) +123456
+                              </Link>
                             </h4>
                           </div>
                         </div>
@@ -98,139 +107,101 @@ function TourHeader() {
                                   href="/home"
                                   className="single link-active"
                                 >
-                                  Home 
+                                  Home
                                 </Link>
-                                
                               </li>
                               <li className="single-list">
-                                <a href="javascript:void(0)" className="single">
+                                <Link
+                                  href="javascript:void(0)"
+                                  className="single"
+                                >
                                   Tours <i className="ri-arrow-down-s-line"></i>
-                                </a>
+                                </Link>
                                 <ul className="submenu">
                                   <li className="single-list">
-                                    <a href="tour-list.html" className="single">
-                                      Tour Category Page
-                                    </a>
+                                    <Link href="/tours" className="single">
+                                      All Tour
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="top-filter-tour-list.html"
                                       className="single"
                                     >
                                       Tour Top Filter Category
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a href="destination.html" className="single">
-                                      Tour destination
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="details-with-gallery.html"
-                                      className="single"
-                                    >
-                                      Details With Gallery
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="details-with-slider.html"
-                                      className="single"
-                                    >
-                                      Details With slider
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="tour-cart-page.html"
-                                      className="single"
-                                    >
-                                      Cart Tour Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="tour-booking-payment.html"
-                                      className="single"
-                                    >
-                                      Payment Tour Page
-                                    </a>
-                                  </li>
-                                  <li className="single-list">
-                                    <a
-                                      href="tour-booking-complite.html"
-                                      className="single"
-                                    >
-                                      Finish Tour Booking
-                                    </a>
+                                    </Link>
                                   </li>
                                 </ul>
                               </li>
-                              
+
                               <li className="single-list">
-                                <a href="javascript:void(0)" className="single">
+                                <Link
+                                  href="javascript:void(0)"
+                                  className="single"
+                                >
                                   Transports{" "}
                                   <i className="ri-arrow-down-s-line"></i>
-                                </a>
+                                </Link>
                                 <ul className="submenu">
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="transports-list.html"
                                       className="single"
                                     >
                                       transports Category Page
-                                    </a>
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="top-filter-transports-list.html"
                                       className="single"
                                     >
                                       Top Filter Category
-                                    </a>
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="transports-details-with-slider.html"
                                       className="single"
                                     >
                                       Details With slider
-                                    </a>
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="transports-cart-page.html"
                                       className="single"
                                     >
                                       Cart transports Page
-                                    </a>
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="transports-booking-payment.html"
                                       className="single"
                                     >
                                       Payment transports Page
-                                    </a>
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a
+                                    <Link
                                       href="transports-booking-complite.html"
                                       className="single"
                                     >
                                       Finish transports Booking
-                                    </a>
+                                    </Link>
                                   </li>
                                   <li className="single-list">
-                                    <a href="invoice.html" className="single">
+                                    <Link
+                                      href="invoice.html"
+                                      className="single"
+                                    >
                                       View Invoice
-                                    </a>
+                                    </Link>
                                   </li>
                                 </ul>
                               </li>
-                              
-                              
+
                               <li className="d-block d-lg-none">
                                 <div className="header-right pl-15">
                                   <div className="d-flex align-items-center gap-12">
@@ -243,12 +214,12 @@ function TourHeader() {
                                     </div>
                                   </div>
                                   <div className="sign-btn">
-                                    <a
+                                    <Link
                                       href="login.html"
                                       className="btn-secondary-sm"
                                     >
                                       Sign In
-                                    </a>
+                                    </Link>
                                   </div>
                                 </div>
                               </li>
@@ -263,16 +234,19 @@ function TourHeader() {
                                   <p className="pera">USD</p>
                                 </div>
                               </div>
-                              <a
+                              <Link
                                 href="/cart"
                                 className="cart text-title text-20"
                               >
                                 <i className="ri-shopping-cart-line"></i>
-                              </a>
+                              </Link>
                               <div className="sign-btn">
-                                <a href="login.html" className="btn-secondary-sm">
+                                <Link
+                                  href="/register"
+                                  className="btn-secondary-sm"
+                                >
                                   Sign In
-                                </a>
+                                </Link>
                               </div>
                               {/* <!-- Theme Mode --> */}
                               <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">
@@ -318,7 +292,7 @@ function TourHeader() {
                       <h4 className="search-label">Recent</h4>
                     </li>
                     <li className="single-list">
-                      <a href="details-with-slider.html">
+                      <Link href="details-with-slider.html">
                         <div className="search-flex">
                           <div className="content-img">
                             <img
@@ -338,10 +312,10 @@ function TourHeader() {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li className="single-list">
-                      <a href="details-with-slider.html">
+                      <Link href="details-with-slider.html">
                         <div className="search-flex">
                           <div className="content-img">
                             <img
@@ -362,10 +336,10 @@ function TourHeader() {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li className="single-list">
-                      <a href="details-with-slider.html">
+                      <Link href="details-with-slider.html">
                         <div className="search-flex">
                           <div className="content-img">
                             <img
@@ -385,13 +359,13 @@ function TourHeader() {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <h4 className="search-label">Recent</h4>
                     </li>
                     <li className="single-list">
-                      <a href="details-with-slider.html">
+                      <Link href="details-with-slider.html">
                         <div className="search-flex">
                           <div className="content-img">
                             <img
@@ -411,10 +385,10 @@ function TourHeader() {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li className="single-list">
-                      <a href="details-with-slider.html">
+                      <Link href="details-with-slider.html">
                         <div className="search-flex">
                           <div className="content-img">
                             <img
@@ -435,10 +409,10 @@ function TourHeader() {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li className="single-list">
-                      <a href="details-with-slider.html">
+                      <Link href="details-with-slider.html">
                         <div className="search-flex">
                           <div className="content-img">
                             <img
@@ -458,7 +432,7 @@ function TourHeader() {
                             </p>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

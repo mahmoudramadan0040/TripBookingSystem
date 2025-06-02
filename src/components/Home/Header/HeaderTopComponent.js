@@ -23,7 +23,7 @@ function HeaderTopComponent() {
                                 {/* <!-- Top Left Side --> */}
                                 {/* <!-- Logo--> */}
                                 <div className="logo">
-                                    <a href="index.html"><img src="/assets/images/logo/logo.png" alt="logo" className="changeLogo"/></a>
+                                    <a href="/home"><img src="/assets/images/logo/logo.png" alt="logo" className="changeLogo"/></a>
                                 </div>
                                 <div className="header-right-three pl-15 d-none d-lg-flex">
                                     <div className="lang">
@@ -36,7 +36,7 @@ function HeaderTopComponent() {
                                             <i className="ri-shopping-cart-line"></i>
                                         </a>
                                         <div className="sign-btn">
-                                            <a href="register.html" className="btn-secondary-sm radius-30">Sign Up</a>
+                                            <a href="/register" className="btn-secondary-sm radius-30">Sign Up</a>
                                         </div>
                                         {/* <!-- Theme Mode --> */}
                                         <button className="ToggleThemeButton change-theme-mode m-0 p-0 border-0">

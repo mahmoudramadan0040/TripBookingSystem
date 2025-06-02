@@ -3,7 +3,7 @@ import TourCard from "./TourCard";
 import Select from "react-select";
 import TourFilters from "./ToursFilters";
 import { useState } from "react";
-
+import Link from "next/link";
 import { useSelector,useDispatch } from "react-redux";
 import { selectFilteredSortedTours, setSortBy } from "@/app/Redux/slices/SharedSlice";
 function TourList({ tours }) {
@@ -71,14 +71,14 @@ function TourList({ tours }) {
             >
               <ul className="breadcrumb listing">
                 <li className="breadcrumb-item single-list">
-                  <a href="index.html" className="single">
+                  <Link href="index.html" className="single">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="breadcrumb-item single-list" aria-current="page">
-                  <a href="javascript:void(0)" className="single active">
+                  <Link href="javascript:void(0)" className="single active">
                     Tour List
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

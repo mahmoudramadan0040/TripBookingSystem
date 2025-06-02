@@ -1,3 +1,4 @@
+import Link from "next/link";
 function HeaderSearchComponent() {
     return ( 
     <>
@@ -23,7 +24,7 @@ function HeaderSearchComponent() {
                                 <h4 className="search-label">Recent</h4>
                             </li>
                             <li className="single-list">
-                                <a href="details-with-slider.html">
+                                <Link href="details-with-slider.html">
                                     <div className="search-flex">
                                         <div className="content-img">
                                             <img src="/assets/images/gallery/search-img-1.jpeg" alt="travello"/>
@@ -40,7 +41,7 @@ function HeaderSearchComponent() {
                                             </p>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             </li>
                             
                         </ul>

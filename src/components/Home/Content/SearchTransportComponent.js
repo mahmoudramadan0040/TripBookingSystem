@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function SearchTransportComponent() {
     return ( 
         <>
@@ -98,9 +100,9 @@ function SearchTransportComponent() {
                                             </div>
                                             <div className="col-xl-2 col-lg-3">
                                                 <div className="sign-btn text-right">
-                                                    <a href="tour-list.html" className="btn-secondary-lg w-100 text-center">
+                                                    <Link href="tour-list.html" className="btn-secondary-lg w-100 text-center">
                                                         <i   className="ri-search-line mr-10 font-20"></i> Search Plan
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,9 +175,9 @@ function SearchTransportComponent() {
                                             </div>
                                             <div className="col-xl-2 col-lg-3">
                                                 <div className="sign-btn">
-                                                    <a href="tour-list.html" className="btn-secondary-lg w-100 text-center">
+                                                    <Link href="tour-list.html" className="btn-secondary-lg w-100 text-center">
                                                         <i className="ri-search-line mr-10 font-20"></i> Search Plan
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>

@@ -18403,7 +18403,7 @@ input[type=number] {
 }
 
 .textEffect2 {
-  background: url(../images/gallery/templates1.html);
+  /* background: url("../images/gallery/templates1.html"); */
   background-size: auto 200%;
   background-clip: text;
   text-fill-color: transparent;
@@ -20827,7 +20827,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
     :: Hero Section 01
 -----------------------------------------------*/
 .hero-area-bg {
-  background-image: url(../images/hero/hero-bg-1.png);
+  background-image: url("../images/hero/hero-bg-1.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -20849,7 +20849,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .platform-area-bg {
-  background-image: url(../images/gallery/promotion-banner.png);
+  background-image: url("../images/gallery/promotion-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -21253,7 +21253,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
     :: Hero 03
 -----------------------------------------------*/
 .hero-area-bg-three {
-  background-image: url(../images/hero/hero-three-banner.png);
+  background-image: url("../images//hero//hero-three-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -21293,7 +21293,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
 }
 
 .platform-area-bg {
-  background-image: url(../images/gallery/promotion-banner.png);
+  background-image: url("../images/gallery/promotion-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -28971,7 +28971,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   top: 0;
   bottom: 0;
   content: "";
-  background-image: url(../images/auth-bg.html);
+  /* background-image: url(../images/auth-bg.png); */
   background-repeat: no-repeat;
   background-position: right bottom;
   width: 100%;
@@ -33247,7 +33247,7 @@ td .user .thumb {
 .lan-hero-bg {
   padding: 250px 0 200px 0;
   width: 100%;
-  background-image: url("../images/hero.html");
+  /* background-image: url("../images/hero.html"); */
   color: #ffffff;
   position: relative;
   text-align: center;
@@ -34122,7 +34122,7 @@ td .user .thumb {
 }
 
 .mask-img-2 {
-  -webkit-mask-image: url(../../../assets/images/icon/mask-1.png);
+  -webkit-mask-image: url("../../assets/images/icon/favicon.png");
   -webkit-mask-size: contain;
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
@@ -34273,7 +34273,7 @@ td .user .thumb {
 .coming-soon-hero-bg {
   padding: 250px 0 200px 0;
   width: 100%;
-  background-image: url("../images/hero.html");
+  /* background-image: url("../images/hero.html"); */
   color: #ffffff;
   position: relative;
   text-align: center;

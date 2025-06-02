@@ -1,14 +1,31 @@
 "use client"
 import Script from "next/script";
+import Head from "next/head";
 import "./globals.css";
 import { ReduxProvider } from "./Redux/ReduxProvider";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor} from "./Redux/store"
 import FooterContentComponent from "@/components/Home/Content/FooterContentComponent";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+//done check 
+import 'remixicon/fonts/remixicon.css';
+//done check
+import "../../public/assets/css/fonts-icon.css";
+
+import "../../public/assets/css/main-style.css";
+// done check 
+import "../../public/assets/css/plugin.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useEffect } from "react";
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    // ✅ Only run in browser
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -63,34 +80,34 @@ export default function RootLayout({ children }) {
           sizes="20x20"
           href="/assets/images/icon/favicon.png"
         />
-        {/* <!-- Bootstrap --> */}
+        {/* <!-- Bootstrap -->
         <link
           rel="stylesheet"
           type="text/css"
           href="/assets/css/bootstrap-5.3.0.min.css"
-        />
+        /> */}
         {/* <!-- Fonts & icon --> */}
-        <link
+        {/* <link
           rel="stylesheet"
           type="text/css"
           href="/assets/css/remixicon.css"
-        />
-        <link
+        /> */}
+        {/* <link
           rel="stylesheet"
           type="text/css"
           href="/assets/css/fonts-icon.css"
-        />
+        /> */}
         {/* <!-- Plugin --> */}
-        <link rel="stylesheet" type="text/css" href="/assets/css/plugin.css" />
+        {/* <link rel="stylesheet" type="text/css" href="/assets/css/plugin.css" /> */}
         {/* <!-- Main CSS --> */}
-        <link
+        {/* <link
           rel="stylesheet"
           type="text/css"
           href="/assets/css/main-style.css"
-        />
+        /> */}
         {/* <!-- RTL CSS::When Need RTL Uncomments File --> */}
         {/* <!ReduxProvider-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> --</link> */}
-      </head>
+      </Head>
       <body>
         <ReduxProvider>
           <PersistGate loading={null} persistor={persistor}>

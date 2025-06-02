@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 function AboutUsComponent() {
     return ( 
         <>
@@ -25,10 +26,10 @@ function AboutUsComponent() {
                                 allows individuals to explore new destinations, cultures.
                             </p>
                             <div className="section-button mt-27 d-inline-block">
-                                <a href="about.html" className="btn-primary-icon-sm radius-20">
+                                <Link href="about.html" className="btn-primary-icon-sm radius-20">
                                     <p className="pera mt-0">Learn More</p>
                                     <i className="ri-arrow-right-up-line"></i>
-                                </a>
+                                </Link>
                             </div>
                             <div className="about-imp-link mt-40">
                                 <div className="icon">
